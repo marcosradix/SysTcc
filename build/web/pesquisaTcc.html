@@ -4,7 +4,7 @@
  <meta charset="utf-8">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1">
- <title>Pesquisa de Alunos</title>
+ <title>Pesquisa de TCC</title>
 
  <link href="css/bootstrap.min.css" rel="stylesheet">
  <link href="css/style.css" rel="stylesheet">
@@ -18,7 +18,7 @@
      <span class="sr-only">Toggle navigation</span>
      <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="deshboard.html">SysTcc - Sistema de Agendamento de TCC</a>
+   <a class="navbar-brand" href="deshboard.html">SysTcc - Sistema de Agendamento de TCC</a>
    </div>
    <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right">
@@ -33,12 +33,12 @@
  
  	<div id="top" class="row">
 		<div class="col-sm-3">
-			<h2>Consulta de Alunos</h2>
+			<h2>Pesquisa de TCC</h2>
 		</div>
 		<div class="col-sm-6">
 			
 			<div class="input-group h2">
-				<input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisa de Alunos">
+				<input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Tccs">
 				<span class="input-group-btn">
 					<button class="btn btn-primary" type="submit">
 						<span class="glyphicon glyphicon-search"></span>
@@ -58,39 +58,58 @@
 		<table class="table table-striped" cellspacing="0" cellpadding="0">
 			<thead>
 				<tr>
-					<th>MATRÍCULA</th>
-					<th>NOME</th>
-					<th>DATA DE NASCIMENTO</th>
-          <th>CURSO</th>
-					<th>STATUS</th>
+					<th>AVALIADOR EXTERNO</th>
+					<th>ÁREA DE CONHECIMENTO</th>
+					<th>DATA DE INÍCIO</th>
+          <th>DATA DE DEFESA</th>
+					<th>NOME DO ALUNO</th>
+          <th>TITULO DO TCC</th>
+          <th>RESULTADO DA DEFESA</th>
 					<th class="actions">Ações</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td>001</td>
-					<td>Paulo Gordo</td>
-					<td>18/04/1982</td>
-          <td>Sistema de informação</td>
-					<td>ATIVO</td>
+					<td>Marcelino</td>
+					<td>Des.Web</td>
+					<td>10/08/2017</td>
+          <td>10/09/2017</td>
+					<td>Orlando Silva</td>
+          <td>Sites Responsivos</td>
+          <td>APROVADO</td>
 					<td class="actions">
-						<a class="btn btn-success btn-xs" href="#">Visualizar</a>
-						<a class="btn btn-warning btn-xs" href="#">Editar</a>
+						<a class="btn btn-success btn-xs" href="cadTcc.html">Visualizar</a>
+						<a class="btn btn-warning btn-xs" href="cadTcc.html">Editar</a>
 						<a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
 					</td>
 				</tr>
-                <tr>
-                    <td>002</td>
-                    <td>Regiane Gomes</td>
-                    <td>22/09/1990</td>
-                    <td>Sistema de informação</td>
-                    <td>ATIVO</td>
-                    <td class="actions">
-                        <a class="btn btn-success btn-xs" href="#">Visualizar</a>
-                        <a class="btn btn-warning btn-xs" href="#">Editar</a>
-                        <a class="btn btn-danger btn-xs" href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-                    </td>
-                </tr>
+        <tr>
+          <td>Marcelino</td>
+          <td>Des.Web</td>
+          <td>10/08/2017</td>
+          <td>10/11/2017</td>
+          <td>Carlos Alberto</td>
+          <td>Segurança Web</td>
+          <td></td>
+          <td class="actions">
+            <a class="btn btn-success btn-xs" href="cadTcc.html">Visualizar</a>
+            <a class="btn btn-warning btn-xs" href="cadTcc.html">Editar</a>
+            <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+        <tr>
+          <td>Marcelino</td>
+          <td>Des.Web</td>
+          <td>20/08/2017</td>
+          <td>02/12/2017</td>
+          <td>Anderson Moraes</td>
+          <td>Aplicações Java</td>
+          <td></td>
+          <td class="actions">
+            <a class="btn btn-success btn-xs" href="cadTcc.html">Visualizar</a>
+            <a class="btn btn-warning btn-xs" href="cadTcc.html">Editar</a>
+            <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+          </td>
+        </tr>
+ 
 			</tbody>
 		</table>
 	</div>
