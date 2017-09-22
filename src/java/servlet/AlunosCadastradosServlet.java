@@ -34,7 +34,7 @@ public class AlunosCadastradosServlet extends HttpServlet {
      response.setCharacterEncoding("UTF-8");
      String pesquisa = request.getParameter("pesquisa");
      
-     request.setAttribute("pesquisa", pesquisa);
+      request.setAttribute("pesquisa", pesquisa);
       request.getRequestDispatcher("alunCadastrados.jsp").forward(request, response);
     }
 

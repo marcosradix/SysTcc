@@ -3,7 +3,7 @@
     Created on : 21/09/2017, 23:08:59
     Author     : Marcos Ferreira
 --%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page language="java"contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -24,12 +24,12 @@
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="deshboard.html">SysTcc - Sistema de Agendamento de TCC</a>
+                    <a class="navbar-brand" href="dashboard.html">SysTcc - Sistema de Agendamento de TCC</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="deshboard.html">In&iacute;cio</a></li>
-                        <li><a href="deshboard.html">Ajuda</a></li>
+                        <li><a href="dashboard.html">In&iacute;cio</a></li>
+                        <li><a href="dashboard.html">Ajuda</a></li>
                     </ul>
                 </div>
             </div>

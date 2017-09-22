@@ -14,13 +14,13 @@ import java.util.logging.Logger;
  * @author Marcos Ferreira
  */
 public class ConexaoBd {
-    Connection connection  = null;
-    String usuario = "root";
-    String senha = "";
-    boolean status =false;
-    String URL = "jdbc:mysql://localhost:3306/systcc_db";
+   private static Connection connection  = null;
+   private static final String usuario = "root";
+    private static final String senha = "";
+   private static  boolean status =false;
+    private static final String URL = "jdbc:mysql://localhost:3306/systcc_db";
     
-    public boolean conecta(){
+    public static Connection conecta(){
         try {
             status = true;
             Class.forName("com.mysql.jdbc.Driver");
@@ -30,9 +30,10 @@ public class ConexaoBd {
             Logger.getLogger(ConexaoBd.class.getName()).log(Level.SEVERE, null, ex);
             	System.out.println("Erro na copnexão ao banco de dados, erro = "+ex);
         }
-        return true;
+       return connection;
+        
     }
-    public boolean desconectar(){
+    public static boolean desconectar(){
         if(status){
             try {
                 connection.close();
@@ -45,5 +46,5 @@ public class ConexaoBd {
         
         return false;
     }
-  
+
 }
