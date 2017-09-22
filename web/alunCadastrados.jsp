@@ -1,5 +1,8 @@
-﻿
-
+<%-- 
+    Document   : testeJsp
+    Created on : 21/09/2017, 23:08:59
+    Author     : Marcos Ferreira
+--%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -67,7 +70,7 @@
                         <tbody>
                             <tr>
                                 <td>001</td>
-                                <td><%=request.getAttribute("pesquisa") %></td>
+                                <td>Antônio</td>
                                 <td>18/04/1982</td>
                                 <td>Sistema de informação</td>
                                 <td>ATIVO</td>

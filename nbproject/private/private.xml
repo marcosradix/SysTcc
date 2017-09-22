@@ -3,7 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Marcos%20Ferreira/Documents/NetBeansProjects/SysTcc/web/deshboard.html</file>
+            <file>file:/C:/Users/Marcos%20Ferreira/Documents/NetBeansProjects/SysTcc/src/java/servlet/AlunosCadastradosServlet.java</file>
+            <file>file:/C:/Users/Marcos%20Ferreira/Documents/NetBeansProjects/SysTcc/web/testeJsp.jsp</file>
+            <file>file:/C:/Users/Marcos%20Ferreira/Documents/NetBeansProjects/SysTcc/web/agendamentoTcc.html</file>
+            <file>file:/C:/Users/Marcos%20Ferreira/Documents/NetBeansProjects/SysTcc/web/alunCadastrados.jsp</file>
+            <file>file:/C:/Users/Marcos%20Ferreira/Documents/NetBeansProjects/SysTcc/src/java/servlet/AgendamentoTccServlet.java</file>
         </group>
     </open-files>
 </project-private>
