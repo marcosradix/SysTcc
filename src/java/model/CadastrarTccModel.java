@@ -56,6 +56,14 @@ public class CadastrarTccModel {
     public void setOrientador(String orientador) {
         this.orientador = orientador;
     }
+
+    public CadastrarTccModel(String resumo, String palavraChave, String curso, String autor, String orientador) {
+        this.resumo = resumo;
+        this.palavraChave = palavraChave;
+        this.curso = curso;
+        this.autor = autor;
+        this.orientador = orientador;
+    }
     
     
 }

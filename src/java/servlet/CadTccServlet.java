@@ -61,14 +61,9 @@ public class CadTccServlet extends HttpServlet {
                 
                 
                 CadastrarTccDao cadastrarTccDao = new CadastrarTccDao();
-                CadastrarTccModel cadastrarTccModel = new CadastrarTccModel();
-                cadastrarTccModel.setResumo(resumo);
-                cadastrarTccModel.setPalavraChave(pavra_chave);
-                cadastrarTccModel.setAutor(autor);
-                cadastrarTccModel.setOrientador(orientador);
-                cadastrarTccModel.setCurso(curso);
+                CadastrarTccModel cadastrarTccModel = new CadastrarTccModel(
+                resumo, pavra_chave, curso,autor, orientador);
                 cadastrarTccDao.salvar(cadastrarTccModel);
-                System.out.println("Salvo com sucesso!");
                 //request.setAttribute("resumo", resumo);
                 //request.setAttribute("pavra_chave", pavra_chave);
                 //request.setAttribute("autor", autor);

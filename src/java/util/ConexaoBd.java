@@ -33,7 +33,7 @@ public class ConexaoBd {
        return connection;
         
     }
-    public static boolean desconectar(){
+    public static Connection desconectar(){
         if(status){
             try {
                 connection.close();
@@ -44,7 +44,7 @@ public class ConexaoBd {
             }
         }
         
-        return false;
+        return connection;
     }
 
 }

@@ -37,6 +37,7 @@ public class CadastrarTccDao implements ICadastrarTccDao{
                 ps.setString(4, cadastrarTccModel.getPalavraChave());
                 ps.setString(5, cadastrarTccModel.getResumo());
                 ps.executeUpdate();
+                ps.close();
             }
         } catch (SQLException ex) {
             Logger.getLogger(CadastrarTccDao.class.getName()).log(Level.SEVERE, null, ex);

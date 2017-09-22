@@ -5,12 +5,16 @@
  */
 package servlet;
 
+import dao.AgendamentoTccDao;
+import dao.CadastrarTccDao;
 import java.io.IOException;
+import java.sql.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.AgendamentoTccModel;
 
 /**
  *
@@ -30,45 +34,8 @@ public class AgendamentoTccServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html; charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-                String tcc = request.getParameter("tcc");
-                String tituloTcc = request.getParameter("tituloTcc");
-                
-                String aluno = request.getParameter("aluno");
-                String curso = request.getParameter("curso");
-                
-                String orientador = request.getParameter("orientador");
-                String avaliadorInterno = request.getParameter("avaliadorInterno");
-                
-                String avaliadorExterno = request.getParameter("avaliadorExterno");
-                String areaConhecimento = request.getParameter("areaConhecimento");
-                
-                String dataInicio = request.getParameter("dataInicio");
-                String dataFinal = request.getParameter("dataFinal");
-                
-                String dataDefesa = request.getParameter("dataDefesa");
-                String resultDefesa = request.getParameter("resultDefesa");
-   
-            request.setAttribute("tcc", tcc);
-            request.setAttribute("tituloTcc", tituloTcc);
-            
-            request.setAttribute("aluno", aluno);
-            request.setAttribute("curso", curso);
-            
-            request.setAttribute("orientador", orientador);
-            request.setAttribute("avaliadorInterno", avaliadorInterno);
-            
-            request.setAttribute("avaliadorExterno", avaliadorExterno);
-            request.setAttribute("areaConhecimento", areaConhecimento);
-            
-            request.setAttribute("dataInicio", dataInicio);
-            request.setAttribute("dataFinal", dataFinal);
-            
-            request.setAttribute("dataDefesa", dataDefesa);
-            request.setAttribute("resultDefesa", resultDefesa);
-            
-            request.getRequestDispatcher("testeJsp.jsp").forward(request, response);
+                response.setContentType("text/html; charset=UTF-8");
+                request.setCharacterEncoding("UTF-8");
 
     }
 
@@ -100,7 +67,36 @@ public class AgendamentoTccServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+                processRequest(request, response);        
+                response.setContentType("text/html; charset=UTF-8");
+                request.setCharacterEncoding("UTF-8");
+                String tcc = request.getParameter("tcc");
+                String tituloTcc = request.getParameter("tituloTcc");
+                
+                String aluno = request.getParameter("aluno");
+                String curso = request.getParameter("curso");
+                
+                String orientador = request.getParameter("orientador");
+                String avaliadorInterno = request.getParameter("avaliadorInterno");
+                
+                String avaliadorExterno = request.getParameter("avaliadorExterno");
+                String areaConhecimento = request.getParameter("areaConhecimento");
+                
+                String dataInicio = request.getParameter("dataInicio");
+                String dataFinal = request.getParameter("dataFinal");
+                
+                String dataDefesa = request.getParameter("dataDefesa");
+                String resultDefesa = request.getParameter("resultDefesa");
+                
+                AgendamentoTccDao agendamentoTccDao = new AgendamentoTccDao();
+                AgendamentoTccModel agendamentoTccModel = new AgendamentoTccModel(
+                tcc, tituloTcc, aluno, curso,orientador ,avaliadorInterno, avaliadorExterno,
+                areaConhecimento,Date.valueOf(dataInicio),Date.valueOf(dataFinal), Date.valueOf(dataDefesa), resultDefesa
+                );
+                agendamentoTccDao.salvar(agendamentoTccModel);
+                
+  
+            request.getRequestDispatcher("agendamentoTcc.html").forward(request, response);
     }
 
     /**
