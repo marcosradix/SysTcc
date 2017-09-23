@@ -6,11 +6,12 @@
 <%@page import="model.AgendamentoTccModel"%>
 <%@page import="java.util.List"%>
 <%@page import="dao.AgendamentoTccDao"%>
+<jsp:useBean id="aTccDao" class="dao.AgendamentoTccDao"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -70,36 +71,29 @@
                         <table class="table table-striped" cellspacing="0" cellpadding="0">
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>ALUNO</th>
-                                    <th>ORIENTADOR</th>
-                                    <th>CURSO</th>
-                                    <th>DATA DA DEFESA</th>
+                                    <th>#</th><th>ALUNO</th><th>ORIENTADOR</th><th>CURSO</th><th>DATA DA DEFESA</th>
                                     <th class="actions">Ações</th>
                                 </tr>
                             </thead>
-                                 <%
-                                AgendamentoTccDao agendamentoTccDao = new AgendamentoTccDao();
-                                List<AgendamentoTccModel> list = agendamentoTccDao.listar("c");
-                                for(AgendamentoTccModel lista: list){
-                                %>
                             <tbody>
-                           
-                                <tr>
-                                    <td><%=lista.getId()%></td>
-                                    <td><%=lista.getAluno()%></td>
-                                    <td><%=lista.getOrientador()%></td>
-                                    <td><%=lista.getCurso()%></td>
-                                    <td><%=lista.getDataDefesa()%></td>
+                                <c:forEach items="${aTccDao.listar(busca)}" var="itemList">
+                                 <tr>
+                                    <td>${itemList.getId()}</td>
+                                    <td>${itemList.getAluno()}</td>
+                                    <td>${itemList.getOrientador()}</td>
+                                    <td>${itemList.getCurso()}</td>
+                                    <td>${itemList.getDataDefesa()}</td>
                                     <td class="actions">
                                         <a class="btn btn-success btn-xs" href="#">Visualizar</a>
                                         <a class="btn btn-warning btn-xs" href="#">Editar</a>
                                         <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
                                     </td>
                                 </tr>
+                                </c:forEach>
+
                                
                             </tbody>
-                            <%}%>
+                            
                         </table>
                     </div>
 

@@ -7,7 +7,6 @@ package servlet;
 
 import dao.AgendamentoTccDao;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,11 +33,13 @@ public class PescAgendamentoServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
         String pesquisa = request.getParameter("pesquisa");
-        
+        request.setAttribute("busca", pesquisa);
         AgendamentoTccDao agendamentoTccDao = new AgendamentoTccDao();
         agendamentoTccDao.listar(pesquisa);
        request.getRequestDispatcher("pescAgendamentos.jsp").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -64,11 +64,15 @@ public class AgendamentoTccDao implements IAgendamentoTcc{
     @Override
     public List<AgendamentoTccModel> listar(String curso) {
         List<AgendamentoTccModel> listConsulta = new ArrayList<>();
-        con = ConexaoBd.conecta();
+        PreparedStatement pst =null;
+        ResultSet rs=null;
         try {
-            PreparedStatement pst = con.prepareStatement("SELECT id ,aluno, orientador, curso, data_defesa FROM agendamento_tcc where tcc LIKE ?");
-            pst.setString(1, curso+"%");
-            ResultSet rs = pst.executeQuery();
+             if(!curso.isEmpty()){
+                con = ConexaoBd.conecta();
+                pst = con.prepareStatement("SELECT id ,aluno, orientador, curso, data_defesa FROM agendamento_tcc where tcc LIKE ?");
+                pst.setString(1, curso+"%");
+                rs = pst.executeQuery();
+            
             while(rs.next()){
                 AgendamentoTccModel agendamentoTccModel = new AgendamentoTccModel(
                     rs.getLong("id"), rs.getString("aluno"), rs.getString("orientador"), rs.getString("curso"), rs.getDate("data_defesa")
@@ -77,7 +81,7 @@ public class AgendamentoTccDao implements IAgendamentoTcc{
                 listConsulta.add(agendamentoTccModel);
                 System.out.println("List " + rs.getString("aluno") +rs.getLong("id"));
                     }
-               
+               }
         } catch (SQLException ex) {
             Logger.getLogger(AgendamentoTccDao.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
