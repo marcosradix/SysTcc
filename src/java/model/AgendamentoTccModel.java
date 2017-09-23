@@ -12,7 +12,8 @@ import java.util.Date;
  * @author Marcos Ferreira
  */
 public class AgendamentoTccModel {
-    	private String tcc;
+        private Long id;
+    	private String tcc; 
 	private String tituloTcc;
 	private String aluno;
 	private String curso;
@@ -25,7 +26,8 @@ public class AgendamentoTccModel {
 	private Date dataDefesa;
 	private String resultadoDefesa;
 
-    public AgendamentoTccModel(String tcc, String tituloTcc, String aluno, String curso, String orientador, String avaliadorInterno, String avaliadorExterno, String areaConhecimento, Date dataInicio, Date dataFinal, Date dataDefesa, String resultadoDefesa) {
+    public AgendamentoTccModel(Long id, String tcc, String tituloTcc, String aluno, String curso, String orientador, String avaliadorInterno, String avaliadorExterno, String areaConhecimento, Date dataInicio, Date dataFinal, Date dataDefesa, String resultadoDefesa) {
+       this.id = id;
         this.tcc = tcc;
         this.tituloTcc = tituloTcc;
         this.aluno = aluno;
@@ -40,8 +42,9 @@ public class AgendamentoTccModel {
         this.resultadoDefesa = resultadoDefesa;
     }
 
-   public AgendamentoTccModel(String aluno, String orientador, String curso, Date dataDefesa) {
-        this.aluno = aluno;
+   public AgendamentoTccModel(Long id,String aluno, String orientador, String curso, Date dataDefesa) {
+       this.id = id; 
+       this.aluno = aluno;
         this.curso = curso;
         this.orientador = orientador;
         this.dataDefesa = dataDefesa;
@@ -141,6 +144,14 @@ public class AgendamentoTccModel {
 
     public void setResultadoDefesa(String resultadoDefesa) {
         this.resultadoDefesa = resultadoDefesa;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
         
         

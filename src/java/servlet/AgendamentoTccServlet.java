@@ -36,40 +36,6 @@ public class AgendamentoTccServlet extends HttpServlet {
             throws ServletException, IOException {
                 response.setContentType("text/html; charset=UTF-8");
                 request.setCharacterEncoding("UTF-8");
-
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-        
-
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-                processRequest(request, response);        
-                response.setContentType("text/html; charset=UTF-8");
-                request.setCharacterEncoding("UTF-8");
                 String tcc = request.getParameter("tcc");
                 String tituloTcc = request.getParameter("tituloTcc");
                 
@@ -90,13 +56,48 @@ public class AgendamentoTccServlet extends HttpServlet {
                 
                 AgendamentoTccDao agendamentoTccDao = new AgendamentoTccDao();
                 AgendamentoTccModel agendamentoTccModel = new AgendamentoTccModel(
-                tcc, tituloTcc, aluno, curso,orientador ,avaliadorInterno, avaliadorExterno,
+                null,tcc, tituloTcc, aluno, curso,orientador ,avaliadorInterno, avaliadorExterno,
                 areaConhecimento,Date.valueOf(dataInicio),Date.valueOf(dataFinal), Date.valueOf(dataDefesa), resultDefesa
                 );
                 agendamentoTccDao.salvar(agendamentoTccModel);
                 
   
             request.getRequestDispatcher("agendamentoTcc.html").forward(request, response);
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+        response.setContentType("text/html; charset=UTF-8");
+               
+
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+                processRequest(request, response);        
+                
+                
+
     }
 
     /**
