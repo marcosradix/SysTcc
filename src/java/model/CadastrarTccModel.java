@@ -10,12 +10,47 @@ package model;
  * @author Marcos Ferreira
  */
 public class CadastrarTccModel {
- 
+    private Long id;
+    private String titulo;
     private String resumo;
     private String palavraChave;
     private String curso;
     private String autor;
     private String orientador;
+
+    public CadastrarTccModel(Long id, String titulo, String resumo, String palavraChave, String curso, String autor, String orientador) {
+        this.id = id;
+        this.titulo = titulo;
+        this.resumo = resumo;
+        this.palavraChave = palavraChave;
+        this.curso = curso;
+        this.autor = autor;
+        this.orientador = orientador;
+    }
+    public CadastrarTccModel(String titulo, String resumo, String palavraChave, String curso, String autor, String orientador) {
+        this.titulo = titulo;
+        this.resumo = resumo;
+        this.palavraChave = palavraChave;
+        this.curso = curso;
+        this.autor = autor;
+        this.orientador = orientador;
+    }
+    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 
     public String getResumo() {
         return resumo;
@@ -57,13 +92,7 @@ public class CadastrarTccModel {
         this.orientador = orientador;
     }
 
-    public CadastrarTccModel(String resumo, String palavraChave, String curso, String autor, String orientador) {
-        this.resumo = resumo;
-        this.palavraChave = palavraChave;
-        this.curso = curso;
-        this.autor = autor;
-        this.orientador = orientador;
-    }
+ 
     
     
 }

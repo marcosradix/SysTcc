@@ -52,17 +52,16 @@ public class CadTccServlet extends HttpServlet {
         processRequest(request, response);
         response.setContentType("text/html; charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-        
+                String titulo = request.getParameter("titulo");
                 String resumo = request.getParameter("resumo");
                 String pavra_chave = request.getParameter("pavra_chave");
                 String autor = request.getParameter("autor");
                 String orientador = request.getParameter("orientador");
                 String curso = request.getParameter("curso");
-                
-                
+               
                 CadastrarTccDao cadastrarTccDao = new CadastrarTccDao();
                 CadastrarTccModel cadastrarTccModel = new CadastrarTccModel(
-                resumo, pavra_chave, curso,autor, orientador);
+                titulo, resumo, pavra_chave, curso,autor, orientador);
                 cadastrarTccDao.salvar(cadastrarTccModel);
                 //request.setAttribute("resumo", resumo);
                 //request.setAttribute("pavra_chave", pavra_chave);

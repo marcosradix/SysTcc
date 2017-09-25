@@ -28,14 +28,15 @@ public class CadastrarTccDao implements ICadastrarTccDao{
     
     @Override
     public void salvar(CadastrarTccModel cadastrarTccModel) {
-        String SQL = "insert into cadastrar_tcc (autor, curso, orientador, palavra_chave, resumo) values(?, ?, ?, ?, ?) ";
+        String SQL = "insert into cadastrar_tcc (titulo, autor, curso, orientador, palavra_chave, resumo) values(?, ?, ?, ?, ?, ?) ";
         try {
             try (PreparedStatement ps = con.prepareStatement(SQL)) {
-                ps.setString(1, cadastrarTccModel.getAutor());
-                ps.setString(2, cadastrarTccModel.getCurso());
-                ps.setString(3, cadastrarTccModel.getOrientador());
-                ps.setString(4, cadastrarTccModel.getPalavraChave());
-                ps.setString(5, cadastrarTccModel.getResumo());
+                ps.setString(1, cadastrarTccModel.getTitulo());
+                ps.setString(2, cadastrarTccModel.getAutor());
+                ps.setString(3, cadastrarTccModel.getCurso());
+                ps.setString(4, cadastrarTccModel.getOrientador());
+                ps.setString(5, cadastrarTccModel.getPalavraChave());
+                ps.setString(6, cadastrarTccModel.getResumo());
                 ps.executeUpdate();
                 ps.close();
             }
