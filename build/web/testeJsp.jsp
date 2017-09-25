@@ -3,7 +3,9 @@
     Created on : 21/09/2017, 11:08:59
     Author     : Marcos Ferreira
 --%>
-
+<%@page import="model.AgendamentoTccModel"%>
+<%@page import="dao.AgendamentoTccDao"%>
+<jsp:useBean id="aTccDao" class="dao.AgendamentoTccDao"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,26 +15,45 @@
     </head>
     <body>
         <h1>Bem vindo </h1>
-        Nome: <%=request.getAttribute("tcc") %><br>
-        Nome: <%=request.getAttribute("tituloTcc") %><br>
+        <%
+            
+        Long codigo = Long.parseLong(request.getParameter("codigo"));
+        AgendamentoTccModel retorno = aTccDao.buscar(codigo);
         
-        Nome: <%=request.getAttribute("aluno") %><br>
-        Nome: <%=request.getAttribute("curso") %><br>
-        
-        Nome: <%=request.getAttribute("orientador") %><br>
-        Nome: <%=request.getAttribute("avaliadorInterno") %><br>
-        
-        Nome: <%=request.getAttribute("avaliadorExterno") %><br>
-        Nome: <%=request.getAttribute("areaConhecimento") %><br>
-        
-        Nome: <%=request.getAttribute("dataInicio") %><br>
-        Nome: <%=request.getAttribute("dataFinal") %><br>
-        
-        Nome: <%=request.getAttribute("dataDefesa") %><br>
-        Nome: <%=request.getAttribute("resultDefesa") %><br>
+        %>
          <br>
-         <input type="button" value="Voltar" onclick="history.back()"/>
          
-         
+         <form>
+             
+             <table style="padding:8px; margin: 10px; height: 50%;">
+                 <tr>
+                     <td><label>Id: </label></td>
+                     <td><input type="text" value="<%= retorno.getId()%>"/></td>
+                 </tr>
+                 <tr>
+                     <td><label>Aluno: </label></td>
+                     <td><input type="text" value="<%= retorno.getAluno()%>" /></td>
+                 </tr>
+                 <tr>
+                     <td><label>Orientador: </label></td>
+                     <td><input type="text" value="<%= retorno.getOrientador()%>" /></td>
+                 </tr>
+                 <tr>
+                     <td> <label>Curso: </label></td>
+                     <td><input type="text" value="<%= retorno.getCurso()%>"/></td>
+                 </tr>
+                 <tr>
+                     <td><label>Data da defesa: </label></td>
+                     <td><input type="text" value="<%= retorno.getDataDefesa()%>"/></td>
+                 </tr>
+                 <tr>
+                     <td></td>
+                     <td>
+                         <input type="button" value="Voltar" onclick="history.back()">
+                     </td>
+                 </tr>
+             </table>
+                 
+         </form>
     </body>
 </html>

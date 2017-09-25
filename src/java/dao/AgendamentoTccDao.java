@@ -90,6 +90,37 @@ public class AgendamentoTccDao implements IAgendamentoTcc{
         
         return listConsulta;
     }
+
+    @Override
+    public AgendamentoTccModel buscar(Long id) {
+        AgendamentoTccModel agendamentoTccModel = null; 
+        PreparedStatement pst =null;
+        ResultSet rs=null;
+        try {
+             if(id != null){
+                con = ConexaoBd.conecta();
+                pst = con.prepareStatement("SELECT id ,aluno, orientador, curso, data_defesa FROM agendamento_tcc where id=?");
+                pst.setLong(1, id);
+                rs = pst.executeQuery();
+               
+            
+            if(rs.next()){
+                agendamentoTccModel = new AgendamentoTccModel(
+                    rs.getLong("id"), rs.getString("aluno"), rs.getString("orientador"), rs.getString("curso"), rs.getDate("data_defesa")
+                );
+                
+                
+                System.out.println("List " + rs.getString("aluno") +rs.getLong("id"));
+                    }
+               }
+        } catch (SQLException ex) {
+            Logger.getLogger(AgendamentoTccDao.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+          con = ConexaoBd.desconectar();
+        }
+        
+        return agendamentoTccModel;
+    }
     
     
     

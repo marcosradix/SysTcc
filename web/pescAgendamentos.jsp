@@ -84,9 +84,9 @@
                                     <td>${itemList.getCurso()}</td>
                                     <td>${itemList.getDataDefesa()}</td>
                                     <td class="actions">
-                                        <a class="btn btn-success btn-xs" href="#">Visualizar</a>
-                                        <a class="btn btn-warning btn-xs" href="#">Editar</a>
-                                        <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                                        <a class="btn btn-success btn-xs" href="testeJsp.jsp?codigo=${itemList.getId()}" data-toggle="modal" data-target="#show-modal">Visualizar</a>
+                                        <a class="btn btn-warning btn-xs" href="testeJsp.jsp?codigo=${itemList.getId()}" data-toggle="modal" data-target="#edit-modal">Editar</a>
+                                        <a class="btn btn-danger btn-xs"  href="testeJsp.jsp?codigo=${itemList.getId()}" data-toggle="modal" data-target="#delete-modal">Excluir</a>
                                     </td>
                                 </tr>
                                 </c:forEach>
@@ -127,6 +127,21 @@
                         <button type="button" class="btn btn-primary">Sim</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>
                     </div>
+                </div>
+            </div>
+        </div>
+               <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+            <div class="modal-dialog" role="document" >
+                <div class="modal-content">
+       
+                </div>
+            </div>
+                   
+        </div>
+        
+               <div class="modal fade" id="show-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
                 </div>
             </div>
         </div>

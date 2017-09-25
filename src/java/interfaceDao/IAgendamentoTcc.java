@@ -18,7 +18,7 @@ public interface IAgendamentoTcc {
         public void salvar(AgendamentoTccModel agendamentoTcc);
     //public void remover(Long id);
         public List<AgendamentoTccModel> listar(String curso);
-    //public CadastrarTccDao buscar(Long id);
+        public AgendamentoTccModel buscar(Long id);
     //public CadastrarTccDao buscarNome(String nome);
     //public void editar(CadastrarTccDao cadastrarTccDao);
 }

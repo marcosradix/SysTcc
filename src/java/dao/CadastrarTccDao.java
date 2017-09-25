@@ -43,6 +43,11 @@ public class CadastrarTccDao implements ICadastrarTccDao{
             Logger.getLogger(CadastrarTccDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @Override
+    public CadastrarTccDao buscar(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
  
     
 }

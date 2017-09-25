@@ -4,6 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Marcos%20Ferreira/Documents/NetBeansProjects/SysTcc/src/java/servlet/PescAgendamentoServlet.java</file>
+            <file>file:/C:/Users/Marcos%20Ferreira/Documents/NetBeansProjects/SysTcc/web/testeJsp.jsp</file>
+            <file>file:/C:/Users/Marcos%20Ferreira/Documents/NetBeansProjects/SysTcc/src/java/model/AgendamentoTccModel.java</file>
             <file>file:/C:/Users/Marcos%20Ferreira/Documents/NetBeansProjects/SysTcc/src/java/dao/AgendamentoTccDao.java</file>
             <file>file:/C:/Users/Marcos%20Ferreira/Documents/NetBeansProjects/SysTcc/web/pescAgendamentos.jsp</file>
         </group>
