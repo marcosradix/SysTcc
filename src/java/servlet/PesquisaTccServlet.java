@@ -5,23 +5,21 @@
  */
 package servlet;
 
-import dao.AgendamentoTccDao;
 import dao.CadastrarTccDao;
 import java.io.IOException;
-import java.sql.Date;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.AgendamentoTccModel;
 
 /**
  *
  * @author Marcos Ferreira
  */
-@WebServlet(name = "agendamentoTccServlet", urlPatterns = {"/agendamentoTccServlet"})
-public class AgendamentoTccServlet extends HttpServlet {
+@WebServlet(name = "PesquisaTccServlet", urlPatterns = {"/PesquisaTccServlet"})
+public class PesquisaTccServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,36 +32,15 @@ public class AgendamentoTccServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                response.setContentType("text/html; charset=UTF-8");
-                request.setCharacterEncoding("UTF-8");
-                String tcc = request.getParameter("tcc");
-                String tituloTcc = request.getParameter("tituloTcc");
-                
-                String aluno = request.getParameter("aluno");
-                String curso = request.getParameter("curso");
-                
-                String orientador = request.getParameter("orientador");
-                String avaliadorInterno = request.getParameter("avaliadorInterno");
-                
-                String avaliadorExterno = request.getParameter("avaliadorExterno");
-                String areaConhecimento = request.getParameter("areaConhecimento");
-                
-                String dataInicio = request.getParameter("dataInicio");
-                String dataFinal = request.getParameter("dataFinal");
-                
-                String dataDefesa = request.getParameter("dataDefesa");
-                String resultDefesa = request.getParameter("resultDefesa");
-                
-                AgendamentoTccDao agendamentoTccDao = new AgendamentoTccDao();
-                
-                AgendamentoTccModel agendamentoTccModel = new AgendamentoTccModel(
-                tcc, tituloTcc, aluno, curso,orientador ,avaliadorInterno, avaliadorExterno,
-                areaConhecimento,Date.valueOf(dataInicio),Date.valueOf(dataFinal), Date.valueOf(dataDefesa), resultDefesa
-                );
-                agendamentoTccDao.salvar(agendamentoTccModel);
-                
-  
-            request.getRequestDispatcher("agendamentoTcc.html").forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+            response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        String busca = request.getParameter("busca");
+        request.setAttribute("busca", busca);
+        CadastrarTccDao cadastrarTccDao = new CadastrarTccDao();
+        cadastrarTccDao.listar(busca);
+       request.getRequestDispatcher("pesquisaTcc.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -79,9 +56,6 @@ public class AgendamentoTccServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        response.setContentType("text/html; charset=UTF-8");
-               
-
     }
 
     /**
@@ -95,10 +69,7 @@ public class AgendamentoTccServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                processRequest(request, response);        
-                
-                
-
+        processRequest(request, response);
     }
 
     /**

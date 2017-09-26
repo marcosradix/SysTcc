@@ -26,8 +26,7 @@ public class AgendamentoTccModel {
 	private Date dataDefesa;
 	private String resultadoDefesa;
 
-    public AgendamentoTccModel(Long id, String tcc, String tituloTcc, String aluno, String curso, String orientador, String avaliadorInterno, String avaliadorExterno, String areaConhecimento, Date dataInicio, Date dataFinal, Date dataDefesa, String resultadoDefesa) {
-       this.id = id;
+    public AgendamentoTccModel(String tcc, String tituloTcc, String aluno, String curso, String orientador, String avaliadorInterno, String avaliadorExterno, String areaConhecimento, Date dataInicio, Date dataFinal, Date dataDefesa, String resultadoDefesa) {
         this.tcc = tcc;
         this.tituloTcc = tituloTcc;
         this.aluno = aluno;
@@ -42,12 +41,13 @@ public class AgendamentoTccModel {
         this.resultadoDefesa = resultadoDefesa;
     }
 
-   public AgendamentoTccModel(Long id,String aluno, String orientador, String curso, Date dataDefesa) {
+   public AgendamentoTccModel(Long id,String aluno, String orientador, String curso, Date dataDefesa, String tituloTcc) {
        this.id = id; 
        this.aluno = aluno;
         this.curso = curso;
         this.orientador = orientador;
         this.dataDefesa = dataDefesa;
+        this.tituloTcc = tituloTcc;
     }
 
     public String getTcc() {

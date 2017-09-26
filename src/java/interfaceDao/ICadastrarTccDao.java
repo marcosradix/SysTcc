@@ -16,8 +16,8 @@ import model.CadastrarTccModel;
 public interface ICadastrarTccDao {
     public void salvar(CadastrarTccModel cadastrarTccModel);
     //public void remover(Long id);
-    //public List<CadastrarTccDao> listar();
-    public CadastrarTccDao buscar(Long id);
+    public List<CadastrarTccModel> listar(String tcc);
+    public CadastrarTccModel buscar(Long id);
     //public CadastrarTccDao buscarNome(String nome);
     //public void editar(CadastrarTccDao cadastrarTccDao);
     

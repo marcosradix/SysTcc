@@ -71,29 +71,48 @@
                         <table class="table table-striped" cellspacing="0" cellpadding="0">
                             <thead>
                                 <tr>
-                                    <th>#</th><th>ALUNO</th><th>ORIENTADOR</th><th>CURSO</th><th>DATA DA DEFESA</th>
+                                    <th>
+                                        CÓDIGO AGENDAMENTO
+                                    </th>
+                                    <th>
+                                        DATA DA DEFESA
+                                    </th>
+                                    <th>
+                                        TÍTULO
+                                    </th>
+                                    <th>
+                                        ALUNO
+                                    </th>
+                                    <th>
+                                        ORIENTADOR
+                                    </th>
+                                    <th>
+                                        CURSO
+                                    </th>
                                     <th class="actions">Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <c:forEach items="${aTccDao.listar(busca)}" var="itemList">
-                                 <tr>
-                                    <td>${itemList.getId()}</td>
-                                    <td>${itemList.getAluno()}</td>
-                                    <td>${itemList.getOrientador()}</td>
-                                    <td>${itemList.getCurso()}</td>
-                                    <td>${itemList.getDataDefesa()}</td>
-                                    <td class="actions">
-                                        <a class="btn btn-success btn-xs" href="testeJsp.jsp?codigo=${itemList.getId()}" data-toggle="modal" data-target="#show-modal">Visualizar</a>
-                                        <a class="btn btn-warning btn-xs" href="testeJsp.jsp?codigo=${itemList.getId()}" data-toggle="modal" data-target="#edit-modal">Editar</a>
-                                        <a class="btn btn-danger btn-xs"  href="testeJsp.jsp?codigo=${itemList.getId()}" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td>${itemList.getId()}</td>
+                                        <td>${itemList.getDataDefesa()}</td>
+                                        <td>${itemList.getTituloTcc()}</td>
+                                        <td>${itemList.getAluno()}</td>
+                                        <td>${itemList.getOrientador()}</td>
+                                        <td>${itemList.getCurso()}</td>
+                                        <td></td>
+                                        <td class="actions">
+                                            <a class="btn btn-success btn-xs" href="testeJsp.jsp?codigo=${itemList.getId()}" data-toggle="modal" data-target="#show-modal">Visualizar</a>
+                                            <a class="btn btn-warning btn-xs" href="testeJsp.jsp?codigo=${itemList.getId()}" data-toggle="modal" data-target="#edit-modal">Editar</a>
+                                            <a class="btn btn-danger btn-xs"  href="testeJsp.jsp?codigo=${itemList.getId()}" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                                        </td>
+                                    </tr>
                                 </c:forEach>
 
-                               
+
                             </tbody>
-                            
+
                         </table>
                     </div>
 
@@ -130,16 +149,16 @@
                 </div>
             </div>
         </div>
-               <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+        <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
             <div class="modal-dialog" role="document" >
                 <div class="modal-content">
-       
+
                 </div>
             </div>
-                   
+
         </div>
-        
-               <div class="modal fade" id="show-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+
+        <div class="modal fade" id="show-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 </div>

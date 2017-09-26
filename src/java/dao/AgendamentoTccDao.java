@@ -69,13 +69,14 @@ public class AgendamentoTccDao implements IAgendamentoTcc{
         try {
              if(!curso.isEmpty()){
                 con = ConexaoBd.conecta();
-                pst = con.prepareStatement("SELECT id ,aluno, orientador, curso, data_defesa FROM agendamento_tcc where tcc LIKE ?");
+                pst = con.prepareStatement("SELECT id ,aluno, orientador, curso, data_defesa, titulo_tcc FROM agendamento_tcc where tcc LIKE ?");
                 pst.setString(1, curso+"%");
                 rs = pst.executeQuery();
             
             while(rs.next()){
                 AgendamentoTccModel agendamentoTccModel = new AgendamentoTccModel(
-                    rs.getLong("id"), rs.getString("aluno"), rs.getString("orientador"), rs.getString("curso"), rs.getDate("data_defesa")
+                    rs.getLong("id"), rs.getString("aluno"), rs.getString("orientador"), rs.getString("curso"), rs.getDate("data_defesa"),
+                        rs.getString("titulo_tcc")
                 );
                 
                 listConsulta.add(agendamentoTccModel);
@@ -99,14 +100,15 @@ public class AgendamentoTccDao implements IAgendamentoTcc{
         try {
              if(id != null){
                 con = ConexaoBd.conecta();
-                pst = con.prepareStatement("SELECT id ,aluno, orientador, curso, data_defesa FROM agendamento_tcc where id=?");
+                pst = con.prepareStatement("SELECT id ,aluno, orientador, curso, data_defesa, titulo_tcc FROM agendamento_tcc where id=?");
                 pst.setLong(1, id);
                 rs = pst.executeQuery();
                
             
             if(rs.next()){
                 agendamentoTccModel = new AgendamentoTccModel(
-                    rs.getLong("id"), rs.getString("aluno"), rs.getString("orientador"), rs.getString("curso"), rs.getDate("data_defesa")
+                    rs.getLong("id"), rs.getString("aluno"), rs.getString("orientador"), rs.getString("curso"), rs.getDate("data_defesa"),
+                        rs.getString("titulo_tcc")
                 );
                 
                 
