@@ -30,6 +30,7 @@
                      <td><label>Id: </label></td>
                      <td><input type="text" value="<%= retorno.getId()%>"/></td>
                  </tr>
+ 
                  <tr>
                      <td><label>Aluno: </label></td>
                      <td><input type="text" value="<%= retorno.getAluno()%>" /></td>

@@ -34,7 +34,20 @@ public class CadTccServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-    response.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
+                String titulo = request.getParameter("titulo");
+                String resumo = request.getParameter("resumo");
+                String pavra_chave = request.getParameter("pavra_chave");
+                String autor = request.getParameter("autor");
+                String orientador = request.getParameter("orientador");
+                String curso = request.getParameter("curso");
+               
+                CadastrarTccDao cadastrarTccDao = new CadastrarTccDao();
+                CadastrarTccModel cadastrarTccModel = new CadastrarTccModel(
+                titulo, resumo, pavra_chave, curso,autor, orientador);
+                cadastrarTccDao.salvar(cadastrarTccModel);
+                request.getRequestDispatcher("cadTcc.html").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -50,20 +63,7 @@ public class CadTccServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        response.setContentType("text/html; charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-                String titulo = request.getParameter("titulo");
-                String resumo = request.getParameter("resumo");
-                String pavra_chave = request.getParameter("pavra_chave");
-                String autor = request.getParameter("autor");
-                String orientador = request.getParameter("orientador");
-                String curso = request.getParameter("curso");
-               
-                CadastrarTccDao cadastrarTccDao = new CadastrarTccDao();
-                CadastrarTccModel cadastrarTccModel = new CadastrarTccModel(
-                titulo, resumo, pavra_chave, curso,autor, orientador);
-                cadastrarTccDao.salvar(cadastrarTccModel);
-                request.getRequestDispatcher("cadTcc.html").forward(request, response);
+
         
     }
 

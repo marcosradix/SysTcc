@@ -7,6 +7,11 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,7 +38,30 @@ public class CadAlunoServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
        response.setCharacterEncoding("UTF-8");
+       request.setCharacterEncoding("UTF-8");
        
+       
+       
+       String nascimento = request.getParameter("dataNascimento");
+       String sexo = request.getParameter("sexo");
+       String rg = request.getParameter("rg");
+       String nome = request.getParameter("nome");
+       String email = request.getParameter("email");
+       String telFixo = request.getParameter("telFixo");
+       String telCelular = request.getParameter("telCelular");
+       String endereco = request.getParameter("endereco");
+       String numero = request.getParameter("numero");
+       String bairro = request.getParameter("bairro");
+       String cidade = request.getParameter("cidade");
+       String estado = request.getParameter("estado");
+       String cep = request.getParameter("cep");
+       String matricula = request.getParameter("matricula");
+       String curso = request.getParameter("curso");
+       String semestre = request.getParameter("semestre");
+       String turno = request.getParameter("turno");
+       request.setAttribute("nome", nome);
+       request.setAttribute("dataNascimento", nascimento);
+       request.getRequestDispatcher("teste.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
