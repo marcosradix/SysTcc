@@ -78,9 +78,37 @@ public class CadTccServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+                 response.setContentType("text/html;charset=UTF-8");
+                response.setCharacterEncoding("UTF-8");
+                request.setCharacterEncoding("UTF-8");
+                Long id = Long.parseLong(request.getParameter("id"));
+                String titulo = request.getParameter("titulo");
+                String resumo = request.getParameter("resumo");
+                String pavra_chave = request.getParameter("pavra_chave");
+                String autor = request.getParameter("autor");
+                String orientador = request.getParameter("orientador");
+                String curso = request.getParameter("curso");
+               
+                CadastrarTccDao cadastrarTccDao = new CadastrarTccDao();
+                CadastrarTccModel cadastrarTccModel = new CadastrarTccModel(id,
+                titulo, resumo, pavra_chave, curso,autor, orientador);
+                cadastrarTccDao.editar(cadastrarTccModel);
+                //request.getRequestDispatcher("pesquisaTcc.jsp").forward(request, response);
+                response.sendRedirect("pesquisaTcc.jsp");
     }
 
+    @Override
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+                response.setContentType("text/html;charset=UTF-8");
+                response.setCharacterEncoding("UTF-8");
+                request.setCharacterEncoding("UTF-8");
+                Long id = Long.parseLong(request.getParameter("id"));
+                CadastrarTccDao cadastrarTccDao = new CadastrarTccDao();
+                CadastrarTccModel cadastrarTccModel = new CadastrarTccModel(id);
+                cadastrarTccDao.editar(cadastrarTccModel);
+    }
+
+    
     /**
      * Returns a short description of the servlet.
      *

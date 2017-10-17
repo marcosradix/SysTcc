@@ -43,7 +43,7 @@
  <hr />
  
     <div id="main" class="container">
-        <form action="CadTcc" method="GET">
+        <form action="CadTcc" method="POST">
             <div class="row">
                     <br />
                     <h3>Editar TCC</h3>
@@ -62,18 +62,24 @@
         CadastrarTccModel retorno = cTccDao.buscar(codigo);
         
         %>
+                        
+        
+                        <div class="form-group">
+                            <label for="tcc">ID</label>
+                            <input type="text" value="<%=retorno.getId()%>" name="id" class="form-control" id="id">
+                        </div>
                         <div class="form-group">
                             <label for="tcc">TÍTULO</label>
                             <input type="text" value="<%=retorno.getTitulo()%>" name="titulo" class="form-control" id="titulo">
                         </div>
                          <div class="form-group">
                             <label for="tcc">RESUMO</label>
-                            <input type="text"  name="resumo" class="form-control" id="tcc">
+                            <input type="text" value="<%=retorno.getResumo()%>" name="resumo" class="form-control" id="tcc">
                         </div>
 
                         <div class="form-group ">
                             <label for="tituloTcc">PALAVRA-CHAVE</label>
-                            <input type="text" name="pavra_chave" class="form-control" id="tituloTcc">
+                            <input type="text" value="<%=retorno.getPalavraChave()%>" name="pavra_chave" class="form-control" id="tituloTcc">
                         </div>
 
                         <div class="form-group">
@@ -98,10 +104,8 @@
                 </div>
                 
             </div>
-        </form>
     </div>
-
-
+           </form>
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
 </body>

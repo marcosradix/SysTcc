@@ -96,11 +96,19 @@ public class AgendamentoTccServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
                 processRequest(request, response);        
-                
-                
-
     }
 
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPut(req, resp); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doDelete(req, resp); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
     /**
      * Returns a short description of the servlet.
      *

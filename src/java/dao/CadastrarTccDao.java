@@ -87,13 +87,13 @@ public class CadastrarTccDao implements ICadastrarTccDao{
         try {
              if(id != null){
                 con = ConexaoBd.conecta();
-                pst = con.prepareStatement("SELECT id ,titulo, orientador, curso, autor, orientador FROM cadastrar_tcc where id= ?");
+                pst = con.prepareStatement("SELECT * FROM cadastrar_tcc where id= ?");
                 pst.setLong(1, id);
                 rs = pst.executeQuery();
             
             if(rs.next()){
                 cadastrarTccModel = new CadastrarTccModel(
-                    rs.getLong("id"), rs.getString("titulo"), rs.getString("curso"), rs.getString("autor"), rs.getString("orientador")
+                    rs.getLong("id"), rs.getString("titulo"),rs.getString("resumo"),rs.getString("palavra_chave"), rs.getString("curso"), rs.getString("autor"), rs.getString("orientador")
                 );
                 
                 }
@@ -107,7 +107,39 @@ public class CadastrarTccDao implements ICadastrarTccDao{
         return cadastrarTccModel;
     }
 
+    @Override
+    public void editar(CadastrarTccModel cadastrarTccModel) {
+                String SQL = "update cadastrar_tcc set titulo=?, autor=?, curso=?, orientador=?, palavra_chave=?, resumo=? where id=?";
+        try {
+            try (PreparedStatement ps = con.prepareStatement(SQL)) {
+                ps.setString(1, cadastrarTccModel.getTitulo());
+                ps.setString(2, cadastrarTccModel.getAutor());
+                ps.setString(3, cadastrarTccModel.getCurso());
+                ps.setString(4, cadastrarTccModel.getOrientador());
+                ps.setString(5, cadastrarTccModel.getPalavraChave());
+                ps.setString(6, cadastrarTccModel.getResumo());
+                ps.setLong(7, cadastrarTccModel.getId());
+                ps.execute();
+                ps.close();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastrarTccDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
- 
-    
+    @Override
+     public void deletar(CadastrarTccModel id) {
+                String SQL = "DELETE FROM cadastrar_tcc where id=?";
+        try {
+            try (PreparedStatement ps = con.prepareStatement(SQL)) {
+                ps.setLong(1, id.getId());
+                ps.execute();
+                ps.close();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastrarTccDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+
 }

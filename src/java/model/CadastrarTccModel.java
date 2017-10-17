@@ -35,6 +35,9 @@ public class CadastrarTccModel {
         this.autor = autor;
         this.orientador = orientador;
     }
+       public CadastrarTccModel(Long id) {
+        this.id = id;
+    }
     public CadastrarTccModel(String titulo, String resumo, String palavraChave, String curso, String autor, String orientador) {
         this.titulo = titulo;
         this.resumo = resumo;

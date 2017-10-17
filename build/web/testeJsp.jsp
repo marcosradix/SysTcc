@@ -3,6 +3,8 @@
     Created on : 21/09/2017, 11:08:59
     Author     : Marcos Ferreira
 --%>
+<%@page import="model.CadastrarTccModel"%>
+<%@page import="dao.CadastrarTccDao"%>
 <%@page import="model.AgendamentoTccModel"%>
 <%@page import="dao.AgendamentoTccDao"%>
 <jsp:useBean id="aTccDao" class="dao.AgendamentoTccDao"/>
@@ -11,50 +13,23 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         <link href="css/bootstrap.min.css" rel="stylesheet">
+ <link href="css/style.css" rel="stylesheet">
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Bem vindo </h1>
+        <h1>Deletado Com Sucesso! </h1>
         <%
             
-        Long codigo = Long.parseLong(request.getParameter("codigo"));
-        AgendamentoTccModel retorno = aTccDao.buscar(codigo);
+        Long id = Long.parseLong(request.getParameter("id"));
+                CadastrarTccDao cadastrarTccDao = new CadastrarTccDao();
+                CadastrarTccModel cadastrarTccModel = new CadastrarTccModel(id);
+                cadastrarTccDao.deletar(cadastrarTccModel);
         
         %>
          <br>
-         
-         <form>
-             
-             <table style="padding:8px; margin: 10px; height: 50%;">
-                 <tr>
-                     <td><label>Id: </label></td>
-                     <td><input type="text" value="<%= retorno.getId()%>"/></td>
-                 </tr>
- 
-                 <tr>
-                     <td><label>Aluno: </label></td>
-                     <td><input type="text" value="<%= retorno.getAluno()%>" /></td>
-                 </tr>
-                 <tr>
-                     <td><label>Orientador: </label></td>
-                     <td><input type="text" value="<%= retorno.getOrientador()%>" /></td>
-                 </tr>
-                 <tr>
-                     <td> <label>Curso: </label></td>
-                     <td><input type="text" value="<%= retorno.getCurso()%>"/></td>
-                 </tr>
-                 <tr>
-                     <td><label>Data da defesa: </label></td>
-                     <td><input type="text" value="<%= retorno.getDataDefesa()%>"/></td>
-                 </tr>
-                 <tr>
-                     <td></td>
-                     <td>
-                         <input type="button" value="Voltar" onclick="history.back()">
-                     </td>
-                 </tr>
-             </table>
-                 
-         </form>
+         <a href="pesquisaTcc.jsp"><button type="button" class="btn btn-primary">Voltar</button></a>
+           <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>

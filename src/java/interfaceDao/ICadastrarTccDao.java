@@ -15,11 +15,11 @@ import model.CadastrarTccModel;
  */
 public interface ICadastrarTccDao {
     public void salvar(CadastrarTccModel cadastrarTccModel);
-    //public void remover(Long id);
+    public void deletar(CadastrarTccModel id);
     public List<CadastrarTccModel> listar(String tcc);
     public CadastrarTccModel buscar(Long id);
     //public CadastrarTccDao buscarNome(String nome);
-    //public void editar(CadastrarTccDao cadastrarTccDao);
+    public void editar(CadastrarTccModel cadastrarTccModel);
     
     
     
