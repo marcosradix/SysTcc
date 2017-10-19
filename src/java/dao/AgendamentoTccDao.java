@@ -100,19 +100,20 @@ public class AgendamentoTccDao implements IAgendamentoTcc{
         try {
              if(id != null){
                 con = ConexaoBd.conecta();
-                pst = con.prepareStatement("SELECT id ,aluno, orientador, curso, data_defesa, titulo_tcc FROM agendamento_tcc where id=?");
+                pst = con.prepareStatement("SELECT * FROM agendamento_tcc where id=?");
                 pst.setLong(1, id);
                 rs = pst.executeQuery();
                
             
             if(rs.next()){
                 agendamentoTccModel = new AgendamentoTccModel(
-                    rs.getLong("id"), rs.getString("aluno"), rs.getString("orientador"), rs.getString("curso"), rs.getDate("data_defesa"),
-                        rs.getString("titulo_tcc")
+                    rs.getLong("id"),rs.getString("tcc"),rs.getString("titulo_tcc"), rs.getString("aluno"),rs.getString("curso"), rs.getString("orientador"), rs.getString("avaliador_interno"),
+                        rs.getString("avaliador_externo"),rs.getString("area_conhecimento"), rs.getDate("data_inicio"), rs.getDate("data_final"), rs.getDate("data_defesa"),
+                        rs.getString("resultado_defesa")
                 );
                 
                 
-                System.out.println("List " + rs.getString("aluno") +rs.getLong("id"));
+                System.out.println("List " + rs.getString("data_inicio") +rs.getLong("id"));
                     }
                }
         } catch (SQLException ex) {
@@ -122,6 +123,49 @@ public class AgendamentoTccDao implements IAgendamentoTcc{
         }
         
         return agendamentoTccModel;
+    }
+
+    @Override
+    public void editar(AgendamentoTccModel agendamentoTcc) {
+        String SQL = "update agendamento_tcc set tcc=?, titulo_tcc=?, aluno=?, curso=?, orientador=?, avaliador_interno=?,"
+                + " avaliador_externo=?, area_conhecimento=?, data_inicio=?, data_final=?, data_defesa=?, resultado_defesa=? where id=?";
+                     
+            try (PreparedStatement ps = con.prepareStatement(SQL)) {
+                ps.setString(1, agendamentoTcc.getTcc());
+                ps.setString(2, agendamentoTcc.getTituloTcc());
+                ps.setString(3, agendamentoTcc.getAluno());
+                ps.setString(4, agendamentoTcc.getCurso());
+                ps.setString(5, agendamentoTcc.getOrientador());
+                ps.setString(6, agendamentoTcc.getAvaliadorInterno());
+                ps.setString(7, agendamentoTcc.getAvaliadorExterno());
+                ps.setString(8, agendamentoTcc.getAreaConhecimento());
+                ps.setDate(9, (Date) agendamentoTcc.getDataInicio());
+                ps.setDate(10, (Date) agendamentoTcc.getDataFinal());
+                ps.setDate(11, (Date) agendamentoTcc.getDataDefesa());
+                ps.setString(12, agendamentoTcc.getResultadoDefesa());
+                ps.setLong(13, agendamentoTcc.getId());
+                ps.execute();
+                ps.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastrarTccDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("SQL erro" + ex.getMessage());
+        }finally{
+            con =  ConexaoBd.desconectar();
+        }
+    }
+
+    @Override
+    public void deletar(AgendamentoTccModel id) {
+          String SQL = "DELETE FROM agendamento_tcc where id=?";
+            try (PreparedStatement ps = con.prepareStatement(SQL)) {
+                ps.setLong(1, id.getId());
+                ps.execute();
+                ps.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastrarTccDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     

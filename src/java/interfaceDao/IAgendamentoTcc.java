@@ -16,9 +16,9 @@ import model.AgendamentoTccModel;
  */
 public interface IAgendamentoTcc {
         public void salvar(AgendamentoTccModel agendamentoTcc);
-    //public void remover(Long id);
+    public void deletar(AgendamentoTccModel id);
         public List<AgendamentoTccModel> listar(String curso);
         public AgendamentoTccModel buscar(Long id);
     //public CadastrarTccDao buscarNome(String nome);
-    //public void editar(CadastrarTccDao cadastrarTccDao);
+    public void editar(AgendamentoTccModel agendamentoTccTccModel);
 }

@@ -66,7 +66,7 @@
         
                         <div class="form-group">
                             <label for="tcc">ID</label>
-                            <input type="text" value="<%=retorno.getId()%>" name="id" class="form-control" id="id">
+                            <input type="text" value="<%=retorno.getId()%>" name="id" class="form-control" id="id" readonly="true">
                         </div>
                         <div class="form-group">
                             <label for="tcc">TÍTULO</label>

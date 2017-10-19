@@ -97,16 +97,6 @@ public class CadTccServlet extends HttpServlet {
                 response.sendRedirect("pesquisaTcc.jsp");
     }
 
-    @Override
-    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-                response.setContentType("text/html;charset=UTF-8");
-                response.setCharacterEncoding("UTF-8");
-                request.setCharacterEncoding("UTF-8");
-                Long id = Long.parseLong(request.getParameter("id"));
-                CadastrarTccDao cadastrarTccDao = new CadastrarTccDao();
-                CadastrarTccModel cadastrarTccModel = new CadastrarTccModel(id);
-                cadastrarTccDao.editar(cadastrarTccModel);
-    }
 
     
     /**

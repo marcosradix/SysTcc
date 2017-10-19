@@ -104,8 +104,8 @@
                                         <td></td>
                                         <td class="actions">
                                             <a class="btn btn-success btn-xs" href="testeJsp.jsp?codigo=${itemList.getId()}" data-toggle="modal" data-target="#show-modal">Visualizar</a>
-                                            <a class="btn btn-warning btn-xs" href="testeJsp.jsp?codigo=${itemList.getId()}" data-toggle="modal" data-target="#edit-modal">Editar</a>
-                                            <a class="btn btn-danger btn-xs"  href="testeJsp.jsp?codigo=${itemList.getId()}" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                                            <a class="btn btn-warning btn-xs" href="pescAgendamentoEditar.jsp?codigo=${itemList.getId()}">Editar</a>
+                                            <a class="btn btn-danger btn-xs"  href="pescAgendamentosDelete.jsp?id=${itemList.getId()}" >Excluir</a>
                                         </td>
                                     </tr>
                                 </c:forEach>

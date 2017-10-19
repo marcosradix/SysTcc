@@ -65,6 +65,41 @@ public class AgendamentoTccServlet extends HttpServlet {
   
             request.getRequestDispatcher("agendamentoTcc.html").forward(request, response);
     }
+    
+     protected void processRequestEditar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+                response.setContentType("text/html; charset=UTF-8");
+                request.setCharacterEncoding("UTF-8");
+                Long id = Long.parseLong(request.getParameter("id"));
+                String tcc = request.getParameter("tcc");
+                String tituloTcc = request.getParameter("tituloTcc");
+                
+                String aluno = request.getParameter("aluno");
+                String curso = request.getParameter("curso");
+                
+                String orientador = request.getParameter("orientador");
+                String avaliadorInterno = request.getParameter("avaliadorInterno");
+                
+                String avaliadorExterno = request.getParameter("avaliadorExterno");
+                String areaConhecimento = request.getParameter("areaConhecimento");
+                
+                String dataInicio = request.getParameter("dataInicio");
+                String dataFinal = request.getParameter("dataFinal");
+                
+                String dataDefesa = request.getParameter("dataDefesa");
+                String resultDefesa = request.getParameter("resultDefesa");
+                
+                AgendamentoTccDao agendamentoTccDao = new AgendamentoTccDao();
+                
+                AgendamentoTccModel agendamentoTccModel = new AgendamentoTccModel(id,
+                tcc, tituloTcc, aluno, curso,orientador ,avaliadorInterno, avaliadorExterno,
+                areaConhecimento,Date.valueOf(dataInicio),Date.valueOf(dataFinal), Date.valueOf(dataDefesa), resultDefesa
+                );
+                agendamentoTccDao.editar(agendamentoTccModel);
+                
+                response.sendRedirect("pescAgendamentos.jsp");
+            //request.getRequestDispatcher("pescAgendamentos.jsp").forward(request, response);
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -79,7 +114,6 @@ public class AgendamentoTccServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        response.setContentType("text/html; charset=UTF-8");
                
 
     }
@@ -95,17 +129,8 @@ public class AgendamentoTccServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                processRequest(request, response);        
-    }
-
-    @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPut(req, resp); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doDelete(req, resp); //To change body of generated methods, choose Tools | Templates.
+        processRequestEditar(request, response);
+                      
     }
 
     

@@ -130,12 +130,11 @@ public class CadastrarTccDao implements ICadastrarTccDao{
     @Override
      public void deletar(CadastrarTccModel id) {
                 String SQL = "DELETE FROM cadastrar_tcc where id=?";
-        try {
             try (PreparedStatement ps = con.prepareStatement(SQL)) {
                 ps.setLong(1, id.getId());
                 ps.execute();
                 ps.close();
-            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(CadastrarTccDao.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -50,6 +50,27 @@ public class AgendamentoTccModel {
         this.tituloTcc = tituloTcc;
     }
 
+    public AgendamentoTccModel(Long id, String tcc, String tituloTcc, String aluno, String curso, String orientador, String avaliadorInterno, String avaliadorExterno, String areaConhecimento, Date dataInicio, Date dataFinal, Date dataDefesa, String resultadoDefesa) {
+        this.id = id;
+        this.tcc = tcc;
+        this.tituloTcc = tituloTcc;
+        this.aluno = aluno;
+        this.curso = curso;
+        this.orientador = orientador;
+        this.avaliadorInterno = avaliadorInterno;
+        this.avaliadorExterno = avaliadorExterno;
+        this.areaConhecimento = areaConhecimento;
+        this.dataInicio = dataInicio;
+        this.dataFinal = dataFinal;
+        this.dataDefesa = dataDefesa;
+        this.resultadoDefesa = resultadoDefesa;
+    }
+
+    public AgendamentoTccModel(Long id) {
+        this.id = id;
+    }
+
+   
     public String getTcc() {
         return tcc;
     }

@@ -18,17 +18,20 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Deletado Com Sucesso! </h1>
+    <center>
+        <h3>Deletado Com Sucesso! </h3>
+    
         <%
             
-        Long id = Long.parseLong(request.getParameter("id"));
-                CadastrarTccDao cadastrarTccDao = new CadastrarTccDao();
-                CadastrarTccModel cadastrarTccModel = new CadastrarTccModel(id);
-                cadastrarTccDao.deletar(cadastrarTccModel);
+                Long id = Long.parseLong(request.getParameter("id"));
+                AgendamentoTccDao agendamentoTccDao = new AgendamentoTccDao();
+                AgendamentoTccModel agendamentoTccModel = new AgendamentoTccModel(id);
+                agendamentoTccDao.deletar(agendamentoTccModel);
         
         %>
          <br>
-         <a href="pesquisaTcc.jsp"><button type="button" class="btn btn-primary">Voltar</button></a>
+         <a href="pescAgendamentos.jsp"><button type="button" class="btn btn-primary">Voltar</button></a>
+         </center>
            <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
     </body>

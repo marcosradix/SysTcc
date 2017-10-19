@@ -87,9 +87,9 @@
                                         <td>${itemList.getCurso()}</td>
                                         <td></td>
                                         <td class="actions">
-                                            <a class="btn btn-success btn-xs" href="testeJsp.jsp?codigo=${itemList.getId()}" data-toggle="modal" data-target="#show-modal">Visualizar</a>
+                                            <a class="btn btn-primary btn-xs"  href="cadTccEditar.jsp?codigo=${itemList.getId()}" >Visualizar</a>
                                             <a class="btn btn-warning btn-xs" href="cadTccEditar.jsp?codigo=${itemList.getId()}">Editar</a>
-                                            <a class="btn btn-danger btn-xs"  href="pesquisaTccDelete.jsp?id=${itemList.getId()}" >Excluir</a>
+                                            <a class="btn btn-danger btn-xs"  href="cadTccDelete.jsp?id=${itemList.getId()}" >Excluir</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -130,7 +130,7 @@
                 </div>
             </div>
         </div>
-       <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+       <div class="modal fade" id="show-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     
