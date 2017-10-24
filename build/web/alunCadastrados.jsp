@@ -75,9 +75,9 @@
                                 <td>Sistema de informação</td>
                                 <td>ATIVO</td>
                                 <td class="actions">
-                                    <a class="btn btn-success btn-xs" href="#">Visualizar</a>
-                                    <a class="btn btn-warning btn-xs" href="#">Editar</a>
-                                    <a class="btn btn-danger btn-xs"  href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                                            <a class="btn btn-primary btn-xs"  href="cadAlunoEditar.jsp?codigo=${itemList.getId()}" >Visualizar</a>
+                                            <a class="btn btn-warning btn-xs" href="cadAlunoEditar.jsp?codigo=${itemList.getId()}">Editar</a>
+                                            <a class="btn btn-danger btn-xs"  href="cadAlunoDelete.jsp?id=${itemList.getId()}" >Excluir</a>
                                 </td>
                             </tr>
                             <tr>
