@@ -4,109 +4,120 @@
  <meta charset="utf-8">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1">
- <title>Tela Principal</title>
-
- <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
- <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
- <link href="css/style.css" rel="stylesheet" type="text/css">
+ <title>SysTcc</title>
+ <link rel="shortcut icon" type="image/x-icon" href="img/ico.png"/>
+ <link href="css/bootstrap.min.css" rel="stylesheet">
+ <link href="css/style.css" rel="stylesheet">
+ 
+<style type="text/css">
+	.btn{
+	background-color:lightblue; 
+	font-size: 25px;
+	text-shadow: 1px 1px 1px #0B243B;
+	font-family: white;
+	}
+	.dropdown-menu{
+    background-color:lightblue; 
+	border-radius: 10px;
+	text-align: center;
+	font-size: 20px;
+	font-family: white;
+	width: 280px;
+	}
+</style>
 </head>
 <body>
-
  <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
-   <div class="navbar-header">
+    <div class="navbar-header">
     <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#navbar" aria-controls="navbar">
      <span class="sr-only">Toggle navigation</span>
      <span class="icon-bar"></span>
      <span class="icon-bar"></span>
      <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="dashboard.html">SysTcc - Sistema de Agendamento de TCC</a>
+        <strong class="navbar-brand" ><a href="index.html">SysTcc - Sistema de Agendamento de TCC</a></strong>
    </div>
    <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right">
-     <li><a href="#">usuáriologado@systcc.com</a></li>
+     <li><a href="#"></a></li>
+     <li><a href="#"></a></li>
+     <li><a href="#"></a></li>
+     <li><a href="#"></a></li>
     </ul>
    </div>
   </div>
  </nav>
 
  <hr />
- <div>
-  
-    <hr />
-    <br>
-    <br>
-    <br>
- </div>
- <br>
- <div style="padding-left: 15px">
-          <div class="row">
-            <div class="row form-control" style="background-color: lightblue">
-            <div class="form-group col-md-12 col-md-offset-5">
-              <label style="">TELA PRINCIPAL</label>
-            </div>
-          </div>
 
- <div id="main" class="container-fluid">
+ <div id="main" class="container-fluid form-control">
+  <form action="LoginServlet" method="POST">
+  	<div class="container">
+                  <hr />
+    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+     
+     <div class="btn-group">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+      ALUNO <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+           <li><a href="cadAluno.html">Cadastrar Aluno</a></li>
+           <li><a href="alunCadastrados.jsp">Pesquisar Aluno</a></li>
+          <!--  <li><a href="#">Something else here</a></li> -->
+          <!--  <li role="separator" class="divider"></li>
+           <li><a href="#">Separated link</a></li> -->
+           </ul>
+         </div>
 
-<div class="container">
-<div class="row">
-    
-<div class="col-md-12">
+     <div class="btn-group">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+      PROFESSOR <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+           <li><a href="cadProfessor.html">Cadastrar Professor</a></li>
+           <li><a href="profCadastrados.jsp">Pesquisar Professor</a></li>
+           <!-- <li><a href="#">Something else here</a></li> -->
+          <!--  <li role="separator" class="divider"></li>
+           <li><a href="#">Separated link</a></li> -->
+           </ul>
+         </div>
 
-<br>
-
-         
- <div class="row">
- 
- <div class="col-md-2">
-     <form>
-<h3>Alunos</h3>
-<p><button type="button" class="demo btn btn-info btn-block" data-animation="flash"><i class="icon-play"/>
-            <a href="cadAluno.html"</i> Cadastrar Aluno</button><br/></a>
-<button type="button" class="demo btn btn-info btn-block" data-animation="bounce"><i class="icon-play">
-        <a href="alunCadastrados.jsp"</i> Pesquisar Aluno</button><br></a>
-
-</div>
-
- <div class="col-md-2">
-
-<h3>Professores</h3>
-<p><button type="button" class=" btn btn-info btn-block" data-animation="flash"><i class="icon-play"><a href="cadProfessor.html"</i> Cadastrar Professor</button><br /></a>
-<button type="button" class="btn btn-info btn-block" data-animation="bounce"><i class="icon-play">
-        <a href="profCadastrados.html"</i> Pesquisar Professor</button><br /></a>
-
-</div>
- <div class="col-md-2">
-
-<h3>Administrativo</h3>
-<p><button type="button" class="demo btn btn-info btn-block" data-animation="flash"><i class="icon-play">
-            <a href="cadTecnicoAdm.html"</i> Cadastrar Téc.Adm</button><br /></a>
-
-</div>
-<div class="col-md-2">
-<h3>TCC</h3>
-<p><button type="button" class="demo btn btn-info btn-block" data-animation="flash"><i class="icon-play">
-            <a href="cadTcc.html"</i> Cadastrar TCC</button><br /></a>
-<button type="button" class="demo btn btn-info btn-block" data-animation="bounce"><i class="icon-play">
-        <a href="pesquisaTcc.jsp"</i> Pesquisar TCC</button><br /></a>
-</div> 
-
- <div class="col-md-2">
-<h3>Agendamento</h3>
-<p><button type="button" class="demo btn btn-info btn-block" data-animation="flash"><i class="icon-play"> 
-            <a href="agendamentoTcc.html"</a></i> Agendar TCC</button><br />
-<button type="button" class="demo btn btn-info btn-block" data-animation="bounce"><i class="icon-play">
-        <a href="pescAgendamentos.jsp"</i> Pesq. Agendamento</button><br /></a>
-</div>   
-
-</div>
-
-   
- </div>
-  
+      <div class= "btn-group">
+          <button type="button" class=" btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      AGENDAMENTO <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+           <li><a href="agendamentoTcc.html" >Agendar TCC</a></li>
+           <li><a href="pesquisaTcc.jsp">Pesquisar TCC</a></li>
+           <li><a href="pescAgendamentos.jsp">Pesquisar Agendamentos</a></li>
+           <!-- <li><a href="#">Something else here</a></li> -->
+           <!-- <li role="separator" class="divider"></li>
+           <li><a href="#">Separated link</a></li> -->
+           </ul>
+         </div>
+      <div class="btn-group">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      ADMINISTRATIVO <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+           <li><a href="cadTecnicoAdm.html">Cadastrar Tec Adimin</a></li>
+         <!--   <li><a href="#">Another action</a></li>
+           <li><a href="#">Something else here</a></li> -->
+          <!--  <li role="separator" class="divider"></li>
+           <li><a href="#">Separated link</a></li> -->
+           </ul>
+      </div>
+    </div>
+   </form>
+  </div>
+  <hr />
+  <center><img src="img/background.png" width="420" height="420">
+	<br>
+	<br>
+  <p align="center">Copyright ©2017 - DSW Fametro</center>
    <script src="js/jquery.min.js"></script>
    <script src="js/bootstrap.min.js"></script>
+   <br>
  </body>
 </html>
