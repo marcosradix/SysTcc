@@ -15,10 +15,10 @@ import model.AgendamentoTccModel;
  * @author Marcos Ferreira
  */
 public interface IAgendamentoTcc {
-        public void salvar(AgendamentoTccModel agendamentoTcc);
+    public void salvar(AgendamentoTccModel agendamentoTcc);
     public void deletar(AgendamentoTccModel id);
-        public List<AgendamentoTccModel> listar(String curso);
-        public AgendamentoTccModel buscar(Long id);
+    public List<AgendamentoTccModel> listar(String curso);
+    public AgendamentoTccModel buscar(Long id);
     //public CadastrarTccDao buscarNome(String nome);
     public void editar(AgendamentoTccModel agendamentoTccTccModel);
 }

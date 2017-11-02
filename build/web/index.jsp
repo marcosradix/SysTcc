@@ -36,7 +36,7 @@
 
  <div id="main" class="container-fluid">
   <form action="LoginServlet" method="POST">
-    
+
       <div class="row col-md-4 col-md-offset-4">
            <hr  />
             <center><img src="img/logo.jpg" width="200" height="200">
@@ -46,12 +46,12 @@
               <div class="form-group">
                  
                   <label>Login</label>
-                <input type="text" class="form-control" name="login" id="login" placeholder="Digite seu email">
+                  <input type="text" class="form-control" name="login" id="login" placeholder="Digite seu email" required="required">
               </div>
 
               <div class="form-group">
                   <label>Senha</label>
-                <input type="password" class="form-control" name="senha" id="senha" placeholder="Digite sua senha">
+                <input type="password" class="form-control" name="senha" id="senha" placeholder="Digite sua senha" required="required">
               </div>
 
           <button type="submit" class="btn btn-primary form-control">Entrar

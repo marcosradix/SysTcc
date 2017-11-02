@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import dao.LoginDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.LoginModel;
 
 /**
  *
@@ -37,10 +39,22 @@ public class LoginServlet extends HttpServlet {
                 
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
+        String msg = "Usuario ou senha invalidos";
+           // request.setAttribute("login", login);
+            //request.setAttribute("senha", senha);
+        LoginDao loginDao = new LoginDao();
+        loginDao.verificarLogin(login ,senha);
+        LoginModel loginModel = new LoginModel();
+        try{
         
-            request.setAttribute("login", login);
-            request.setAttribute("senha", senha);
-            request.getRequestDispatcher("dashboard.html").forward(request, response);
+        if(loginDao.getLogin().getUsuario().equals(login) && loginDao.getLogin().getSenha().equals(senha)){
+        response.sendRedirect("dashboard.html");
+        }
+        }catch(Exception e){
+            request.setAttribute("msg", msg);
+            response.sendRedirect("index.jsp");
+           
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -55,7 +69,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+    
     }
 
     /**

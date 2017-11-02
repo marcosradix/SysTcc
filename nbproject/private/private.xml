@@ -6,7 +6,9 @@
             <file>file:/home/marcos/NetBeansProjects/SysTcc/src/java/interfaceDao/ICadAlunoDao.java</file>
             <file>file:/home/marcos/NetBeansProjects/SysTcc/src/java/servlet/CadAlunoServlet.java</file>
             <file>file:/home/marcos/NetBeansProjects/SysTcc/web/alunCadastrados.jsp</file>
+            <file>file:/home/marcos/NetBeansProjects/SysTcc/web/index.jsp</file>
             <file>file:/home/marcos/NetBeansProjects/SysTcc/src/java/dao/CadAlunoDao.java</file>
+            <file>file:/home/marcos/NetBeansProjects/SysTcc/src/java/servlet/LoginServlet.java</file>
         </group>
     </open-files>
 </project-private>
