@@ -3,11 +3,16 @@
     Created on : 21/09/2017, 23:08:59
     Author     : Marcos Ferreira
 --%>
-<%@page language="java"contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="model.CadAlunoModel"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.CadAlunoDao"%>
+<jsp:useBean id="cAlunoDao" class="dao.CadAlunoDao"/>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Pesquisa de Alunos</title>
@@ -34,7 +39,7 @@
                 </div>
             </div>
         </nav>
-        <form action="AlunosCadastradosServlet" method="GET">
+     <form action="AlunosCadastradosServlet" method="GET" name="formBusca">
         <div id="main" class="container-fluid" style="margin-top: 50px">
 
             <div id="top" class="row">
@@ -44,7 +49,7 @@
                 <div class="col-sm-6">
 
                     <div class="input-group h2">
-                        <input  name="pesquisa" class="form-control" id="search" type="text" placeholder="Pesquisar de Alunos">
+                        <input  name="pesquisa" class="form-control" id="search" type="text" placeholder="Pesquisa de Alunos">
                         <span class="input-group-btn">
                             <button  class="btn btn-primary" type="submit">
                                 <span class="glyphicon glyphicon-search"></span>
@@ -52,7 +57,9 @@
                         </span>
                     </div>
                 </div>
+                
             </div> <!-- /#top -->
+            
             <hr />
             <div id="list" class="row">
                 <div class="table-responsive col-md-12">
@@ -68,30 +75,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>001</td>
-                                <td>Antônio</td>
-                                <td>18/04/1982</td>
-                                <td>Sistema de informação</td>
-                                <td>ATIVO</td>
-                                <td class="actions">
+                           <c:forEach items="${cTccDao.listar(busca)}" var="itemList">
+                                    <tr>
+                                        <td>${itemList.getId()}</td>
+                                        <td>${itemList.getMatricula()}</td>
+                                        <td>${itemList.getNome()}</td>
+                                        <td>${itemList.getDataDeNascimento()}</td>
+                                        <td>${itemList.getCurso()}</td>
+                                        <td>${itemList.getStatus()}</td>
+                                        <td></td>
+                                        <td class="actions">
                                             <a class="btn btn-primary btn-xs"  href="cadAlunoEditar.jsp?codigo=${itemList.getId()}" >Visualizar</a>
                                             <a class="btn btn-warning btn-xs" href="cadAlunoEditar.jsp?codigo=${itemList.getId()}">Editar</a>
                                             <a class="btn btn-danger btn-xs"  href="cadAlunoDelete.jsp?id=${itemList.getId()}" >Excluir</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>002</td>
-                                <td>Regiane Gomes</td>
-                                <td>22/09/1990</td>
-                                <td>Sistema de informação</td>
-                                <td>ATIVO</td>
-                                <td class="actions">
-                                    <a class="btn btn-success btn-xs" href="#">Visualizar</a>
-                                    <a class="btn btn-warning btn-xs" href="#">Editar</a>
-                                    <a class="btn btn-danger btn-xs" href="#" data-toggle="modal" data-target="#delete-modal">Excluir</a>
-                                </td>
-                            </tr>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
                         </tbody>
                     </table>
                 </div>
@@ -126,6 +125,13 @@
                         <button type="button" class="btn btn-primary">Sim</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>
                     </div>
+                </div>
+            </div>
+        </div>
+       <div class="modal fade" id="show-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    
                 </div>
             </div>
         </div>
