@@ -39,7 +39,7 @@
   
    <h3 class="page-header">Cadastro de Técnico Administrativo</h3>
 
-     <form action="dashboard.html">
+   <form action="CadTecnicoAdmServlet" method="POST">
       <div style="padding-left: 15px">
           <div class="row">
             <div class="row form-control" style="background-color: lightblue">
@@ -101,7 +101,7 @@
             </div>
             <div class="form-group col-md-2">
               <label for="cep">NÚMERO</label>
-              <input type="text" name="cep" class="form-control" id="cep">
+              <input type="text" name="numero" class="form-control" id="numero">
             </div>
             </div>
             <div class="row">
@@ -124,13 +124,13 @@
           </div>
           <div id="actions" class="row">
             <div class="col-md-12">
-            <a href="#" class="btn btn-primary">Salvar</a>
-            <a href="#" class="btn btn-default">Cancelar</a>
+             <button type="submit" class="btn btn-primary">Salvar</button>
+             <input type="button" class="btn btn-success" value="Voltar" onclick="history.back()">
            </div>
           </div>
-
+          </div>
+      </div>
      </form>
-
  </div>
  
 

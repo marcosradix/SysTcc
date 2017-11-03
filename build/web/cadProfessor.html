@@ -7,6 +7,7 @@
  <title>Cadastro de Professores</title>
 
  <link href="css/bootstrap.min.css" rel="stylesheet">
+ <link href="css/bootstrap.css" rel="stylesheet">
  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
@@ -14,7 +15,7 @@
  <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
    <div class="navbar-header">
-    <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#navbar" aria-controls="navbar">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
      <span class="sr-only">Toggle navigation</span>
      <span class="icon-bar"></span>
      <span class="icon-bar"></span>
@@ -24,8 +25,8 @@
    </div>
    <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right">
-     <li><a href="#">Início</a></li>
-     <li><a href="#">Ajuda</a></li>
+     <li><a href="#"></a></li>
+     <li><a href="#"></a></li>
      <li><a href="#"></a></li>
      <li><a href="#"></a></li>
     </ul>
@@ -39,7 +40,7 @@
   
    <h3 class="page-header">Cadastro de Professores</h3>
 
-   <form action="dashboard.html" method="GET">
+   <form action="CadProfessorServlet" method="POST">
       <div style="padding-left: 15px">
           <div class="row">
             <div class="row form-control" style="background-color: lightblue">
@@ -50,40 +51,41 @@
           <div class="row">
             <div class="form-group col-md-8">
               <label for="nome">NOME COMPLETO</label>
-              <input type="text" name="nome" class="form-control" id="nome">
+              <input type="text" name="nomeCompleto" class="form-control" id="nome">
             </div>
             <div class="form-group col-md-3">
               <label for="dataNascimento">DATA DE NASCIMENTO</label>
-              <input type="date" name="dataNascimento" class="form-control" id="dataNascimento">
+              <input type="date" name="dataNascimento" class="form-control" id="dataNascimento" required="required">
             </div>
           </div>
           <div class="row">
             <div class="form-group col-md-2">
-                <label for="dominio">SEXO</label>
-                <hr/>
-              <select class="form-control" name="idDominio" id="idDominio">
-                <option>Selecione...</option>
-                <option value="vic">MASCULINO</option>
-                <option value="vec">FEMININO</option> 
+                
+                <label for="sexo">SEXO</label>
+              <select class="form-control" name="sexo" id="sexo">
+                  
+              <option >Selecione...</option>
+                <option value="masculino">MASCULINO</option>
+                <option value="feminino">FEMININO</option> 
                </select>
             </div>
             <div class="form-group col-md-3">
               <label for="matricula">MATRÍCULA FUNCIONAL</label>
-              <input type="text" name="matricula" class="form-control" id="matricula">
+              <input type="number" name="matricula" class="form-control" id="matricula">
             </div>
              <div class="form-group col-md-3">
               <label for="rg">RG</label>
-              <input type="text" name="rg" class="form-control" id="rg">
+              <input type="number" name="rg" class="form-control" id="rg">
             </div>
              <div class="form-group col-md-3">
               <label for="cpf">CPF</label>
-              <input type="text" name="cpf" class="form-control" id="cpf">
+              <input type="number" name="cpf" class="form-control" id="cpf">
             </div>
           </div>
           <div class="row">
             <div class="form-group col-md-7">
               <label for="email">E-MAIL</label>
-              <input type="email" class="form-control" id="email">
+              <input type="email" name="email" class="form-control" id="email">
             </div>
             <div class="form-group col-md-2">
               <label for="telFixo">TELEFONE FIXO</label>
@@ -101,7 +103,7 @@
             </div>
             <div class="form-group col-md-2">
               <label for="cep">NÚMERO</label>
-              <input type="text" name="cep" class="form-control" id="cep">
+              <input type="text" name="numero" class="form-control" id="numero">
             </div>
             </div>
             <div class="row">
@@ -124,16 +126,16 @@
           </div>
           <div id="actions" class="row">
             <div class="col-md-12">
-            <a href="profCadastrados.html" class="btn btn-primary">Salvar</a>
-            <a href="profCadastrados.html" class="btn btn-default">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <input type="button" class="btn btn-success" value="Voltar" onclick="history.back()">
            </div>
           </div>
 
+ </div>
+      </div>
      </form>
-
  </div>
  
-
  <script src="js/jquery.min.js"></script>
  <script src="js/bootstrap.min.js"></script>
 </body>

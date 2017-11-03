@@ -58,7 +58,7 @@ public class AgendamentoTccServlet extends HttpServlet {
                 
                 AgendamentoTccModel agendamentoTccModel = new AgendamentoTccModel(
                 tcc, tituloTcc, aluno, curso,orientador ,avaliadorInterno, avaliadorExterno,
-                areaConhecimento,Date.valueOf(dataInicio),Date.valueOf(dataFinal), Date.valueOf(dataDefesa), resultDefesa
+                areaConhecimento,dataInicio,dataFinal,dataDefesa, resultDefesa
                 );
                 agendamentoTccDao.salvar(agendamentoTccModel);
                 
@@ -93,7 +93,7 @@ public class AgendamentoTccServlet extends HttpServlet {
                 
                 AgendamentoTccModel agendamentoTccModel = new AgendamentoTccModel(id,
                 tcc, tituloTcc, aluno, curso,orientador ,avaliadorInterno, avaliadorExterno,
-                areaConhecimento,Date.valueOf(dataInicio),Date.valueOf(dataFinal), Date.valueOf(dataDefesa), resultDefesa
+                areaConhecimento,dataInicio,dataFinal, dataDefesa, resultDefesa
                 );
                 agendamentoTccDao.editar(agendamentoTccModel);
                 

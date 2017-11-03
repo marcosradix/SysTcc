@@ -45,9 +45,9 @@ public class AgendamentoTccDao implements IAgendamentoTcc{
                 ps.setString(6, agendamentoTcc.getAvaliadorInterno());
                 ps.setString(7, agendamentoTcc.getAvaliadorExterno());
                 ps.setString(8, agendamentoTcc.getAreaConhecimento());
-                ps.setDate(9, (Date) agendamentoTcc.getDataInicio());
-                ps.setDate(10, (Date) agendamentoTcc.getDataFinal());
-                ps.setDate(11, (Date) agendamentoTcc.getDataDefesa());
+                ps.setString(9, agendamentoTcc.getDataInicio());
+                ps.setString(10,  agendamentoTcc.getDataFinal());
+                ps.setString(11,  agendamentoTcc.getDataDefesa());
                 ps.setString(12, agendamentoTcc.getResultadoDefesa());
                 
                 ps.executeUpdate();
@@ -75,7 +75,7 @@ public class AgendamentoTccDao implements IAgendamentoTcc{
             
             while(rs.next()){
                 AgendamentoTccModel agendamentoTccModel = new AgendamentoTccModel(
-                    rs.getLong("id"), rs.getString("aluno"), rs.getString("orientador"), rs.getString("curso"), rs.getDate("data_defesa"),
+                    rs.getLong("id"), rs.getString("aluno"), rs.getString("orientador"), rs.getString("curso"), rs.getString("data_defesa"),
                         rs.getString("titulo_tcc")
                 );
                 
@@ -108,7 +108,7 @@ public class AgendamentoTccDao implements IAgendamentoTcc{
             if(rs.next()){
                 agendamentoTccModel = new AgendamentoTccModel(
                     rs.getLong("id"),rs.getString("tcc"),rs.getString("titulo_tcc"), rs.getString("aluno"),rs.getString("curso"), rs.getString("orientador"), rs.getString("avaliador_interno"),
-                        rs.getString("avaliador_externo"),rs.getString("area_conhecimento"), rs.getDate("data_inicio"), rs.getDate("data_final"), rs.getDate("data_defesa"),
+                        rs.getString("avaliador_externo"),rs.getString("area_conhecimento"), rs.getString("data_inicio"), rs.getString("data_final"), rs.getString("data_defesa"),
                         rs.getString("resultado_defesa")
                 );
                 
@@ -139,9 +139,9 @@ public class AgendamentoTccDao implements IAgendamentoTcc{
                 ps.setString(6, agendamentoTcc.getAvaliadorInterno());
                 ps.setString(7, agendamentoTcc.getAvaliadorExterno());
                 ps.setString(8, agendamentoTcc.getAreaConhecimento());
-                ps.setDate(9, (Date) agendamentoTcc.getDataInicio());
-                ps.setDate(10, (Date) agendamentoTcc.getDataFinal());
-                ps.setDate(11, (Date) agendamentoTcc.getDataDefesa());
+                ps.setString(9, agendamentoTcc.getDataInicio());
+                ps.setString(10,  agendamentoTcc.getDataFinal());
+                ps.setString(11, agendamentoTcc.getDataDefesa());
                 ps.setString(12, agendamentoTcc.getResultadoDefesa());
                 ps.setLong(13, agendamentoTcc.getId());
                 ps.execute();

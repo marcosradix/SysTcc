@@ -40,7 +40,7 @@
             </div>
         </nav>
 
-        <form action="PescAgendamentoServlet" method="GET" name="formBusca">
+        <form action="PescAgendamentoServlet" method="GET">
             <div id="main" class="container-fluid" style="margin-top: 50px">
 
                 <div id="top" class="row">
@@ -49,7 +49,9 @@
                     </div>
                     <div class="col-sm-6">
 
+                        
                         <div class="input-group h2">
+                            
                             <input name="pesquisa" class="form-control" id="search" type="text" placeholder="Pesquisar Agendamentos">
                             <span class="input-group-btn">
                                 <button class="btn btn-primary" type="submit">

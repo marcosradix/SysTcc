@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import dao.CadAlunoDao;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,10 +31,15 @@ public class AlunosCadastradosServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-     response.setCharacterEncoding("UTF-8");
+         response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
+     
      String pesquisa = request.getParameter("pesquisa");
-      request.setAttribute("pesquisa", pesquisa);
+      request.setAttribute("busca", pesquisa);
+      
+      CadAlunoDao cadAlunoDao = new CadAlunoDao();
+        cadAlunoDao.listar(pesquisa);
       request.getRequestDispatcher("alunCadastrados.jsp").forward(request, response);
     }
 
@@ -63,7 +69,7 @@ public class AlunosCadastradosServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
     }
 
     /**

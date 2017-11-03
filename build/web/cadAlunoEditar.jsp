@@ -43,7 +43,7 @@
  <hr />
  
     <div id="main" class="container">
-        <form action="CadAluno" method="POST">
+        <form action="CadAlunoServlet" method="GET">
             <div class="row">
                     <br />
                     <h3>Editar Aluno</h3>
@@ -74,15 +74,15 @@
                         </div>
                          <div class="form-group">
                             <label for="dataNascimento">DATA DE NASCIMENTO</label>
-                            <input type="date" value="<%=retorno.getDataDeNascimento()%>" name="dataDeNascimento" class="form-control" id="dataNascimento">
+                            <input type="date" value="<%=retorno.getDataDeNascimento()%>" name="dataNascimento" class="form-control" id="dataNascimento">
                         </div>
 
                         <div class="form-group ">
                             <label for="sexo">SEXO</label>
                             <select class="form-control" name="sexo" id="sexo">
-                                <option>Selecione...</option>
-                                <option value="vic">MASCULINO</option>
-                                <option value="vec">FEMININO</option> 
+                                <option><%=retorno.getSexo()%></option>
+                                <option value="Masculino">MASCULINO</option>
+                                <option value="Feminino">FEMININO</option> 
                             </select>
                         </div>
                         <div class="form-group">
@@ -176,7 +176,7 @@
                         
                         <div class="col-md-12">
                             <button type="submit" class="btn btn-primary">Salvar</button>
-                            <input type="button" class="btn btn-secondary" value="Voltar" onclick="history.back()">
+                            <input type="button" class="btn btn-success" value="Voltar" onclick="history.back()">
                   
                 </div>
                 

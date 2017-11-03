@@ -153,7 +153,7 @@
 
                                 <div class="col-md-12">
                                     <button type="submit" class="btn btn-primary">Salvar</button>
-                                    <input type="button" class="btn btn-secondary" value="Voltar" onclick="history.back()">
+                                    <input type="button" class="btn btn-success" value="Voltar" onclick="history.back()">
 
                                 </div>
 

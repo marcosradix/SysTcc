@@ -39,7 +39,7 @@
                 </div>
             </div>
         </nav>
-     <form action="AlunosCadastradosServlet" method="GET" name="formBusca">
+     <form action="AlunosCadastradosServlet" method="GET">
         <div id="main" class="container-fluid" style="margin-top: 50px">
 
             <div id="top" class="row">
@@ -66,23 +66,24 @@
                     <table class="table table-striped" cellspacing="0" cellpadding="0">
                         <thead>
                             <tr>
+                                <th>#</th>
                                 <th>MATRÍCULA</th>
                                 <th>NOME</th>
                                 <th>DATA DE NASCIMENTO</th>
                                 <th>CURSO</th>
-                                <th>STATUS</th>
+                                <th>TURNO</th>
                                 <th class="actions">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
-                           <c:forEach items="${cTccDao.listar(busca)}" var="itemList">
+                           <c:forEach items="${cAlunoDao.listar(busca)}" var="itemList">
                                     <tr>
                                         <td>${itemList.getId()}</td>
                                         <td>${itemList.getMatricula()}</td>
-                                        <td>${itemList.getNome()}</td>
+                                        <td>${itemList.getNomeCompleto()}</td>
                                         <td>${itemList.getDataDeNascimento()}</td>
                                         <td>${itemList.getCurso()}</td>
-                                        <td>${itemList.getStatus()}</td>
+                                        <td>${itemList.getTurno()}</td>
                                         <td></td>
                                         <td class="actions">
                                             <a class="btn btn-primary btn-xs"  href="cadAlunoEditar.jsp?codigo=${itemList.getId()}" >Visualizar</a>

@@ -34,8 +34,10 @@ public class PescAgendamentoServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
         request.setCharacterEncoding("UTF-8");
+        
         String pesquisa = request.getParameter("pesquisa");
         request.setAttribute("busca", pesquisa);
+        
         AgendamentoTccDao agendamentoTccDao = new AgendamentoTccDao();
         agendamentoTccDao.listar(pesquisa);
        request.getRequestDispatcher("pescAgendamentos.jsp").forward(request, response);

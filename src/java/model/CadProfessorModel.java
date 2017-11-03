@@ -10,11 +10,12 @@ package model;
  *
  * @author Usuário
  */
-public class CadAlunoModel {
+public class CadProfessorModel {
     private Long id;
     private String nomeCompleto;
     private String dataDeNascimento;
     private String sexo;
+    private String matricula;
     private String rg;
     private String cpf;
     private String email;
@@ -26,25 +27,12 @@ public class CadAlunoModel {
     private String cidade;
     private String estado;
     private String cep;
-    private String matricula;
-    private String curso;
-    private String semestre;
-    private String turno;
 
-    
-   
-       public CadAlunoModel(Long id) {
-        this.id = id;
-    }
-
-    public CadAlunoModel(Long id, String nomeCompleto, String dataDeNascimento, String sexo, String rg,
-            String cpf, String email, String telefoneFixo, String telefoneCelular, String endereco,
-            String numero, String bairro, String cidade, String estado, String cep, String matricula,
-            String curso, String semestre, String turno) {
-        this.id = id;
+    public CadProfessorModel(String nomeCompleto, String dataDeNascimento, String sexo, String matricula, String rg, String cpf, String email, String telefoneFixo, String telefoneCelular, String endereco, String numero, String bairro, String cidade, String estado, String cep) {
         this.nomeCompleto = nomeCompleto;
         this.dataDeNascimento = dataDeNascimento;
         this.sexo = sexo;
+        this.matricula = matricula;
         this.rg = rg;
         this.cpf = cpf;
         this.email = email;
@@ -56,36 +44,14 @@ public class CadAlunoModel {
         this.cidade = cidade;
         this.estado = estado;
         this.cep = cep;
-        this.matricula = matricula;
-        this.curso = curso;
-        this.semestre = semestre;
-        this.turno = turno;
-    }
-    
-       
-       
-        public CadAlunoModel(Long id, String nomeCompleto, String rg,String cpf,
-        String endereco, String email, String curso, String matricula, String semestre, String turno, String dataNascimento) {
-        this.id = id;
-        this.nomeCompleto = nomeCompleto;
-        this.rg = rg;
-        this.cpf = cpf;
-        this.curso = curso;
-        this.email = email;
-        this.endereco = endereco;
-        this.semestre = semestre;
-        this.matricula = matricula;
-        this.curso = curso;
-        this.turno = turno;
-        this.dataDeNascimento = dataNascimento;
     }
 
-    public CadAlunoModel(String nomeCompleto, String dataDeNascimento, String sexo, String rg, String cpf, String email,
-            String telefoneFixo, String telefoneCelular, String endereco, String numero, String bairro, String cidade,
-            String estado, String cep, String matricula, String curso, String semestre, String turno) {
+    public CadProfessorModel(Long id, String nomeCompleto, String dataDeNascimento, String sexo, String matricula, String rg, String cpf, String email, String telefoneFixo, String telefoneCelular, String endereco, String numero, String bairro, String cidade, String estado, String cep) {
+        this.id = id;
         this.nomeCompleto = nomeCompleto;
         this.dataDeNascimento = dataDeNascimento;
         this.sexo = sexo;
+        this.matricula = matricula;
         this.rg = rg;
         this.cpf = cpf;
         this.email = email;
@@ -97,13 +63,17 @@ public class CadAlunoModel {
         this.cidade = cidade;
         this.estado = estado;
         this.cep = cep;
-        this.matricula = matricula;
-        this.curso = curso;
-        this.semestre = semestre;
-        this.turno = turno;
     }
-       
-        
+
+    public CadProfessorModel() {
+    }
+
+    public CadProfessorModel(Long id) {
+        this.id = id;
+    }
+
+
+    
     public Long getId() {
         return id;
     }
@@ -134,6 +104,14 @@ public class CadAlunoModel {
 
     public void setSexo(String sexo) {
         this.sexo = sexo;
+    }
+    
+      public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
     public String getRg() {
@@ -224,39 +202,6 @@ public class CadAlunoModel {
     public void setCep(String cep) {
         this.cep = cep;
     }
-
-    public String getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
-    }
-
-    public String getCurso() {
-        return curso;
-    }
-
-    public void setCurso(String curso) {
-        this.curso = curso;
-    }
-
-    public String getSemestre() {
-        return semestre;
-    }
-
-    public void setSemestre(String semestre) {
-        this.semestre = semestre;
-    }
-
-    public String getTurno() {
-        return turno;
-    }
-
-    public void setTurno(String turno) {
-        this.turno = turno;
-    }
-
-       
+    
     
 }

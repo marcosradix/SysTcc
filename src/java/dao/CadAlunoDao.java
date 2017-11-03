@@ -34,11 +34,11 @@ public class CadAlunoDao implements ICadAlunoDao{
     @Override
     public void salvar(CadAlunoModel cadAlunoModel) {
                 String SQL = "insert into cadastrar_aluno (nome_completo, data_de_nascimento, sexo, rg, cpf, email, telefone_fixo, "
-                        + "telefone_celular, endereco, numero, bairro, cidade, estado , cep, matricula, curso, semestre, turno) values(?, ?, ?, ?, ?, ?) ";
+                        + "telefone_celular, endereco, numero, bairro, cidade, estado , cep, matricula, curso, semestre, turno) values(?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?) ";
         try {
             try (PreparedStatement ps = con.prepareStatement(SQL)) {
                 ps.setString(1, cadAlunoModel.getNomeCompleto());
-                ps.setDate(2, (Date) cadAlunoModel.getDataDeNascimento());
+                ps.setString(2, cadAlunoModel.getDataDeNascimento());
                 ps.setString(3, cadAlunoModel.getSexo());
                 ps.setString(4, cadAlunoModel.getRg());
                 ps.setString(5, cadAlunoModel.getCpf());
@@ -71,14 +71,15 @@ public class CadAlunoDao implements ICadAlunoDao{
         try {
              if(!nomeCompleto.isEmpty()){
                 con = ConexaoBd.conecta();
-                pst = con.prepareStatement("SELECT id ,nomeCompleto, rg, cpf, endereco, email, curso, matricula, semestre, turno FROM cadastrar_aluno where nomeCompleto LIKE ?");
+                pst = con.prepareStatement("SELECT id ,nome_completo,data_de_nascimento, rg, cpf, endereco, email, curso, matricula, semestre, turno FROM cadastrar_aluno where nome_completo LIKE ?");
                 pst.setString(1, nomeCompleto+"%");
                 rs = pst.executeQuery();
             
             while(rs.next()){
                 CadAlunoModel cadAlunoModel = new CadAlunoModel (
-                    rs.getLong("id"), rs.getString("nomeCompleto"), rs.getString("rg"), rs.getString("cpf"), rs.getString("endereco"), rs.getString("email"), rs.getString("curso"), rs.getString("matricula")
-                       , rs.getString("semestre"), rs.getString("turno") 
+                    rs.getLong("id"), rs.getString("nome_completo"), rs.getString("rg"), rs.getString("cpf")
+                        , rs.getString("endereco"), rs.getString("email"), rs.getString("curso"), rs.getString("matricula")
+                       , rs.getString("semestre"), rs.getString("turno"), rs.getString("data_de_nascimento")
                 );
                 
                 listConsulta.add(cadAlunoModel);
@@ -90,7 +91,7 @@ public class CadAlunoDao implements ICadAlunoDao{
         }finally{
           con = ConexaoBd.desconectar();
         }
-        
+       
         return listConsulta;
     }
 
@@ -108,8 +109,10 @@ public class CadAlunoDao implements ICadAlunoDao{
             
             if(rs.next()){
                 cadAlunoModel = new CadAlunoModel(
-                        rs.getLong("id"), rs.getString("nomeCompleto"), rs.getString("rg"), rs.getString("cpf"), rs.getString("endereco"), rs.getString("email"), rs.getString("curso"), rs.getString("matricula")
-                       , rs.getString("semestre"), rs.getString("turno")
+                        rs.getLong("id"),rs.getString("nome_completo"),rs.getString("data_de_nascimento"),rs.getString("sexo"), rs.getString("rg"),
+                        rs.getString("cpf"),rs.getString("email"),rs.getString("telefone_fixo"),rs.getString("telefone_celular"), rs.getString("endereco"), rs.getString("numero"),
+                        rs.getString("bairro"), rs.getString("cidade"), rs.getString("estado"), rs.getString("cep"), rs.getString("matricula"),
+                        rs.getString("curso"),rs.getString("semestre"),rs.getString("turno")
                     );
                 
                 }
@@ -130,7 +133,7 @@ public class CadAlunoDao implements ICadAlunoDao{
         try {
             try (PreparedStatement ps = con.prepareStatement(SQL)) {
                 ps.setString(1, cadAlunoModel.getNomeCompleto());
-                ps.setDate(2, (Date) cadAlunoModel.getDataDeNascimento());
+                ps.setString(2, cadAlunoModel.getDataDeNascimento());
                 ps.setString(3, cadAlunoModel.getSexo());
                 ps.setString(4, cadAlunoModel.getRg());
                 ps.setString(5, cadAlunoModel.getCpf());

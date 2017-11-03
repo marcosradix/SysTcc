@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import dao.CadProfessorDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -15,10 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Marcos Ferreira
+ * @author marcos
  */
-@WebServlet(name = "ProfCadastradosServlet", urlPatterns = {"/ProfCadastradosServlet"})
-public class ProfCadastradosServlet extends HttpServlet {
+@WebServlet(name = "PesquisaProfServlet", urlPatterns = {"/PesquisaProfServlet"})
+public class PesquisaProfServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,10 +32,16 @@ public class ProfCadastradosServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-      String pesquisa = request.getParameter("pesquisa");
-      request.setAttribute("pesquisa", pesquisa);
-      request.getRequestDispatcher("profCadastrados.jsp").forward(request, response);
+     response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        
+        String pesquisa = request.getParameter("pesquisa");
+        request.setAttribute("busca", pesquisa);
+        
+        CadProfessorDao cadProfessorDao = new CadProfessorDao();
+        cadProfessorDao.listar(pesquisa);
+       request.getRequestDispatcher("profCadastrados.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -63,7 +70,7 @@ public class ProfCadastradosServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
     }
 
     /**

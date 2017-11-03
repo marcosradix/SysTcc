@@ -5,11 +5,12 @@
  */
 package servlet;
 
+import dao.CadProfessorDao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -17,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.CadProfessorModel;
 
 /**
  *
@@ -24,7 +26,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "CadProfessorServlet", urlPatterns = {"/CadProfessorServlet"})
 public class CadProfessorServlet extends HttpServlet {
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -40,11 +41,12 @@ public class CadProfessorServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         request.setCharacterEncoding("UTF-8");
         
+        String nome = request.getParameter("nomeCompleto");
        String nascimento = request.getParameter("dataNascimento");
        String sexo = request.getParameter("sexo");
-       String matriculaFunc = request.getParameter("matriculaFunc");
+       String matriculaFunc = request.getParameter("matricula");
        String rg = request.getParameter("rg");
-       String nome = request.getParameter("nome");
+       String cpf = request.getParameter("cpf");
        String email = request.getParameter("email");
        String telFixo = request.getParameter("telFixo");
        String telCelular = request.getParameter("telCelular");
@@ -54,9 +56,17 @@ public class CadProfessorServlet extends HttpServlet {
        String cidade = request.getParameter("cidade");
        String estado = request.getParameter("estado");
        String cep = request.getParameter("cep");
-       request.setAttribute("nome", nome);
-       request.setAttribute("dataNascimento", nascimento);
-       request.getRequestDispatcher("teste.jsp").forward(request, response);
+       //request.setAttribute("nome", nome);
+       //request.setAttribute("dataNascimento", nascimento);
+       try{
+                  CadProfessorDao cadProfessorDao = new CadProfessorDao();
+       CadProfessorModel cadProfessorModel = new CadProfessorModel(nome, nascimento, sexo, matriculaFunc, rg, cpf, email
+               , telFixo, telCelular, endereco,numero, bairro, cidade, estado, cep);
+       cadProfessorDao.salvar(cadProfessorModel);
+       response.sendRedirect("cadProfessor.html");
+       }catch(Exception e){
+       response.sendRedirect("erros.jsp");
+       }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -71,7 +81,40 @@ public class CadProfessorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+              response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
+       Long id = Long.parseLong(request.getParameter("id"));
+       String nome = request.getParameter("nomeCompleto");
+       String nascimento = request.getParameter("dataNascimento");
+       String sexo = request.getParameter("sexo");
+       String matriculaFunc = request.getParameter("matricula");
+       String rg = request.getParameter("rg");
+       String cpf = request.getParameter("cpf");
+       String email = request.getParameter("email");
+       String telFixo = request.getParameter("telFixo");
+       String telCelular = request.getParameter("telCelular");
+       String endereco = request.getParameter("endereco");
+       String numero = request.getParameter("numero");
+       String bairro = request.getParameter("bairro");
+       String cidade = request.getParameter("cidade");
+       String estado = request.getParameter("estado");
+       String cep = request.getParameter("cep");
+       //request.setAttribute("nome", nome);
+       //request.setAttribute("dataNascimento", nascimento);
+       try{
+       CadProfessorDao cadProfessorDao = new CadProfessorDao();
+       CadProfessorModel cadProfessorModel = new CadProfessorModel(id,nome, nascimento, sexo, matriculaFunc, rg, cpf, email
+               , telFixo, telCelular, endereco,numero, bairro, cidade, estado, cep);
+       cadProfessorDao.editar(cadProfessorModel);
+       response.sendRedirect("profCadastrados.jsp");
+       }catch(Exception e){
+       response.sendRedirect("erros.jsp");
+       e.printStackTrace();
+       }
+        
+        
+        
     }
 
     /**

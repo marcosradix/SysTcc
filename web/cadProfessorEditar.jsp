@@ -1,12 +1,12 @@
 <%-- 
-    Document   : cadAlunoEditar
+    Document   : cadProfessorEditar
     Created on : 24/10/2017, 12:14:35
-    Author     : Usuário
+    Author     : José Werbston
 --%>
-<%@page import="model.CadAlunoModel"%>
+<%@page import="model.CadProfessorModel"%>
 <%@page import="java.util.List"%>
-<%@page import="dao.CadAlunoDao"%>
-<jsp:useBean id="cAlunoDao" class="dao.CadAlunoDao"/>
+<%@page import="dao.CadProfessorDao"%>
+<jsp:useBean id="pProfessorDao" class="dao.CadProfessorDao"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -43,29 +43,29 @@
  <hr />
  
     <div id="main" class="container">
-        <form action="CadAlunoServlet" method="GET">
+        <form action="CadProfessorServlet" method="GET">
             <div class="row">
                     <br />
-                    <h3>Editar Aluno</h3>
+                    <h3>Editar Professor</h3>
                     <br />
 
           <div class="row">
             <div class="row form-control" style="background-color: lightblue">
             <div class="form-group col-md-12 col-md-offset-5">
-              <label style="">REGISTRAR ALUNO</label>
+              <label style="">REGISTRAR PROFESSOR</label>
             </div>
           </div>
                         <br>
                                <%
             
         Long codigo = Long.parseLong(request.getParameter("codigo"));
-        CadAlunoModel retorno = cAlunoDao.buscar(codigo);
+        CadProfessorModel retorno = pProfessorDao.buscar(codigo);
         
         %>
                         
         
                         <div class="form-group">
-                            <label for="aluno">ID</label>
+                            <label for="professor">ID</label>
                             <input type="text" value="<%=retorno.getId()%>" name="id" class="form-control" id="id" readonly="true">
                         </div>
                         <div class="form-group">
@@ -81,9 +81,13 @@
                             <label for="sexo">SEXO</label>
                             <select class="form-control" name="sexo" id="sexo">
                                 <option><%=retorno.getSexo()%></option>
-                                <option value="Masculino">MASCULINO</option>
-                                <option value="Feminino">FEMININO</option> 
+                                <option value="marculino">MASCULINO</option>
+                                <option value="feminino">FEMININO</option> 
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="matricula">MATRÍCULA FUNCIONAL</label>
+                            <input type="text" value="<%=retorno.getRg()%>"  name="matricula" class="form-control" id="matricula">
                         </div>
                         <div class="form-group">
                             <label for="rg">RG</label>
@@ -144,41 +148,13 @@
                             <label for="cep">CEP</label>
                             <input type="text" value="<%=retorno.getCep()%>" name="cep" class="form-control" id="cep">
                         </div>
-           
-                        <div class="row form-control" style="background-color: lightblue">
-                            <div class="form-group col-md-12 col-md-offset-5">
-                            <label style="">DADOS ACADÊMICO</label>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="matricula">MATRÍCULA</label>
-                            <input type="text" value="<%=retorno.getMatricula()%>" name="matricula" class="form-control" id="matricula">
-                        </div>               
-                      
-                        <div class="form-group">
-                            <label for="curso">CURSO</label>
-                            <input type="text" value="<%=retorno.getCurso()%>" name="curso" class="form-control" id="cep">
-                        </div>
-                        
-                        
-                        <div class="form-group">
-                            <label for="semestreId">SEMESTRE</label>
-                            <input type="text" value="<%=retorno.getSemestre()%>" name="semestre" class="form-control" id="semestreId">
-                        </div>
-                        
-                        
-                        <div class="form-group">
-                            <label for="turno">TURNO</label>
-                            <input type="text" value="<%=retorno.getTurno()%>" name="turno" class="form-control" id="turno">
-                        </div>
-                       
+             
                         
                         <div class="col-md-12">
                             <button type="submit" class="btn btn-primary">Salvar</button>
-                            <input type="button" class="btn btn-success" value="Voltar" onclick="history.back()">
+                            <input type="button" class="btn btn-secondary" value="Voltar" onclick="history.back()">
                   
-                </div>
+                        </div>
                 
             </div>
     </div>
