@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet {
                 
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
-        String msg = "Usuario ou senha invalidos";
+        String msg = "Usuario e ou senha invalidos!";
            // request.setAttribute("login", login);
             //request.setAttribute("senha", senha);
         LoginDao loginDao = new LoginDao();
@@ -52,7 +52,9 @@ public class LoginServlet extends HttpServlet {
         }
         }catch(Exception e){
             request.setAttribute("msg", msg);
-            response.sendRedirect("index.jsp");
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+            //response.sendRedirect("index.jsp");
+            
            
         }
     }

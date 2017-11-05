@@ -36,7 +36,7 @@
 
  <div id="main" class="container-fluid">
   <form action="LoginServlet" method="POST">
-
+      <h1> <%= request.getAttribute("msg") != null ? request.getAttribute("msg") : ""%> </h1>
       <div class="row col-md-4 col-md-offset-4">
            <hr  />
             <center><img src="img/logo.jpg" width="200" height="200">
