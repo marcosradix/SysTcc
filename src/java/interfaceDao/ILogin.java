@@ -13,6 +13,6 @@ import model.LoginModel;
  */
 public interface ILogin {
  
-    public LoginModel verificarLogin(String nome, String senha);
+    public LoginModel verificarLogin(LoginModel loginModel);
     
 }

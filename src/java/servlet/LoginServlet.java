@@ -45,19 +45,24 @@ public class LoginServlet extends HttpServlet {
            // request.setAttribute("login", login);
             //request.setAttribute("senha", senha);
         LoginDao loginDao = new LoginDao();
-        loginDao.verificarLogin(login ,senha);
-        //LoginModel loginModel = new LoginModel();
+        LoginModel loginModel = new  LoginModel();
+        loginModel.setUsuario(login);
+        loginModel.setSenha(senha);
+        LoginModel valida = loginDao.verificarLogin(loginModel);
         try{
         
-        if(loginDao.getLogin().getUsuario().equals(login) && loginDao.getLogin().getSenha().equals(senha)){
-            sessao.setAttribute("usuario", loginDao.getLogin().getUsuario());
+        if(valida.getUsuario().equals(login) && valida.getSenha().equals(senha)){
+            sessao.setAttribute("usuario", valida.getUsuario());
         request.getRequestDispatcher("dashboard.jsp").forward(request, response);
+        }else{
+           request.setAttribute("msg", msg);
+           request.getRequestDispatcher("index.jsp").forward(request, response);
         }
         }catch(ServletException | IOException e){
-            request.setAttribute("msg", msg);
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            //request.setAttribute("msg", msg);
+            //request.getRequestDispatcher("index.jsp").forward(request, response);
             //response.sendRedirect("index.jsp");
-            
+            e.printStackTrace();
            
         }
     }

@@ -21,7 +21,6 @@ import util.ConexaoBd;
  */
 public class LoginDao implements ILogin{
 Connection con;
-private LoginModel login = null;
     public LoginDao() {
         con = ConexaoBd.conecta();
     }
@@ -29,36 +28,27 @@ private LoginModel login = null;
     
 
     @Override
-    public LoginModel verificarLogin(String nome, String senha) {
-        LoginModel loginModel = null;
+    public LoginModel verificarLogin(LoginModel loginModel) {
         PreparedStatement pst =null;
+        LoginModel loginModel2 = new LoginModel("", "");
         ResultSet rs=null;
         try {
                 con = ConexaoBd.conecta();
                 pst = con.prepareStatement("SELECT usuario, senha FROM login where usuario=? and senha=?");
-                pst.setString(1, nome);
-                pst.setString(2, senha);
+                pst.setString(1, loginModel.getUsuario());
+                pst.setString(2, loginModel.getSenha());
                 rs = pst.executeQuery();
                 if(rs.next()){
-                  loginModel = new LoginModel(rs.getString("usuario"),rs.getString("senha"));  
+                     loginModel2 = new LoginModel(rs.getString("usuario"),rs.getString("senha"));  
                 }
-                
-                this.login = loginModel;
+               
         } catch (SQLException ex) {
             Logger.getLogger(AgendamentoTccDao.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
           con = ConexaoBd.desconectar();
         }
         
-        return loginModel;
-    }
-
-    public LoginModel getLogin() {
-        return login;
-    }
-
-    public void setLogin(LoginModel login) {
-        this.login = login;
+        return loginModel2;
     }
     
 }

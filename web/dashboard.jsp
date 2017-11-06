@@ -33,6 +33,11 @@
 </style>
 </head>
 <body>
+    <% response.setHeader("Cache-Control","no-cache , no-store, must-revalidate");
+        if(session.getAttribute("usuario") == null){
+            response.sendRedirect("index.jsp");
+        }
+    %>
  <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -46,7 +51,9 @@
    </div>
   <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right">
+         <li><a href="sair.jsp">Sair</a></li>
         <li><a href="dashboard.jsp">Início</a></li>
+       
      <li><a href="#">Ajuda</a></li>
      <% String sessao = (String )request.getSession().getAttribute("usuario");%>
      <li><a><%= sessao != null ? "Logado : "+sessao : ""%></a></li>
