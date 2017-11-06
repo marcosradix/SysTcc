@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.LoginModel;
 
 /**
@@ -40,17 +41,19 @@ public class LoginServlet extends HttpServlet {
         String login = request.getParameter("login");
         String senha = request.getParameter("senha");
         String msg = "Usuario e ou senha invalidos!";
+        HttpSession sessao = request.getSession();
            // request.setAttribute("login", login);
             //request.setAttribute("senha", senha);
         LoginDao loginDao = new LoginDao();
         loginDao.verificarLogin(login ,senha);
-        LoginModel loginModel = new LoginModel();
+        //LoginModel loginModel = new LoginModel();
         try{
         
         if(loginDao.getLogin().getUsuario().equals(login) && loginDao.getLogin().getSenha().equals(senha)){
-        response.sendRedirect("dashboard.html");
+            sessao.setAttribute("usuario", loginDao.getLogin().getUsuario());
+        request.getRequestDispatcher("dashboard.jsp").forward(request, response);
         }
-        }catch(Exception e){
+        }catch(ServletException | IOException e){
             request.setAttribute("msg", msg);
             request.getRequestDispatcher("index.jsp").forward(request, response);
             //response.sendRedirect("index.jsp");

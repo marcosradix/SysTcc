@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<%-- 
+    Document   : teste
+    Created on : 27/09/2017, 11:19:06
+    Author     : Marcos Ferreira
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%><!DOCTYPE html>
 <html lang="pt-br">
 <head>
  <meta charset="utf-8">
@@ -36,14 +42,14 @@
      <span class="icon-bar"></span>
      <span class="icon-bar"></span>
     </button>
-        <strong class="navbar-brand" ><a href="dashboard.html">SysTcc - Sistema de Agendamento de TCC</a></strong>
+        <strong class="navbar-brand" ><a href="dashboard.jsp">SysTcc - Sistema de Agendamento de TCC</a></strong>
    </div>
-   <div id="navbar" class="navbar-collapse collapse">
+  <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right">
-     <li><a href="#"></a></li>
-     <li><a href="#"></a></li>
-     <li><a href="#"></a></li>
-     <li><a href="#"></a></li>
+        <li><a href="dashboard.jsp">Início</a></li>
+     <li><a href="#">Ajuda</a></li>
+     <% String sessao = (String )request.getSession().getAttribute("usuario");%>
+     <li><a><%= sessao != null ? "Logado : "+sessao : ""%></a></li>
     </ul>
    </div>
   </div>
@@ -116,7 +122,7 @@
   <center><img src="img/background.jpg" width="420" height="420">
 	<br>
 	<br>
-  <p align="center">Copyright ©2017 - DSW Fametro</center>
+  <p align="center">Copyright Â©2017 - DSW Fametro</center>
    <script src="js/jquery.min.js"></script>
    <script src="js/bootstrap.min.js"></script>
    <br>
