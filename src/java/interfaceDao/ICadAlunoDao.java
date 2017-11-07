@@ -16,6 +16,7 @@ public interface ICadAlunoDao {
     public void salvar(CadAlunoModel cadAlunoModel);
     public void deletar(CadAlunoModel id);
     public List<CadAlunoModel> listar(String aluno);
+    public List<CadAlunoModel> listarAluno();
     public CadAlunoModel buscar(Long id);
     public void editar(CadAlunoModel cadAlunoModel);   
     

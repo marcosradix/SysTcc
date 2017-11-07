@@ -12,6 +12,11 @@
         <title>Erro</title>
     </head>
     <body>
+            <% response.setHeader("Cache-Control","no-cache , no-store, must-revalidate");
+        if(session.getAttribute("usuario") == null){
+            response.sendRedirect("index.jsp");
+        }
+    %>
         <h1>erro 404 página não encontrada!</h1>
     </body>
 </html>

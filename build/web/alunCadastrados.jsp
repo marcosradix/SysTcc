@@ -21,7 +21,11 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
-
+    <% response.setHeader("Cache-Control","no-cache , no-store, must-revalidate");
+        if(session.getAttribute("usuario") == null){
+            response.sendRedirect("index.jsp");
+        }
+    %>
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">

@@ -1,3 +1,10 @@
+<%-- 
+    Document   : 
+    Created on : 27/09/2017, 11:19:06
+    Author     : Marcos Ferreira
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%><!DOCTYPE html>
 ﻿<!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,7 +17,11 @@
  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-
+    <% response.setHeader("Cache-Control","no-cache , no-store, must-revalidate");
+        if(session.getAttribute("usuario") == null){
+            response.sendRedirect("index.jsp");
+        }
+    %>
  <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
    <div class="navbar-header">
@@ -76,10 +87,12 @@
                             <input type="text" name="orientador" class="form-control" id="orientador">
                         </div>
 
-                        <div class="col-md-12">
+                        <div id="actions" class="row">
+                            <div class="col-md-12">
                             <button type="submit" class="btn btn-primary">Salvar</button>
-                            <button  type="submit" class="btn btn-success" onclick="history.back();">Cancelar</button>
-                        </div>
+                            <input type="button" class="btn btn-success" value="Voltar" onclick="history.back()">
+                           </div>
+                       </div>
                   </form>
                 </div>
                 

@@ -1,3 +1,10 @@
+<%-- 
+    Document   : 
+    Created on : 27/09/2017, 11:19:06
+    Author     : Marcos Ferreira
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%><!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,7 +18,11 @@
  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-
+    <% response.setHeader("Cache-Control","no-cache , no-store, must-revalidate");
+        if(session.getAttribute("usuario") == null){
+            response.sendRedirect("index.jsp");
+        }
+    %>
  <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
    <div class="navbar-header">
@@ -45,7 +56,7 @@
           <div class="row">
             <div class="row form-control" style="background-color: lightblue">
             <div class="form-group col-md-12 col-md-offset-5">
-              <label style="">INFORMAÇÕES PESSOAIS</label>
+              <label style="">INFORMAÃÃES PESSOAIS</label>
             </div>
           </div>
           <div class="row">
@@ -70,7 +81,7 @@
                </select>
             </div>
             <div class="form-group col-md-3">
-              <label for="matricula">MATRÍCULA FUNCIONAL</label>
+              <label for="matricula">MATRÃCULA FUNCIONAL</label>
               <input type="number" name="matricula" class="form-control" id="matricula">
             </div>
              <div class="form-group col-md-3">
@@ -98,11 +109,11 @@
           </div>
           <div class="row">
             <div class="form-group col-md-9">
-              <label for="endereco">ENDEREÇO</label>
+              <label for="endereco">ENDEREÃO</label>
               <input type="text" name="endereco" class="form-control" id="endereco">
             </div>
             <div class="form-group col-md-2">
-              <label for="cep">NÚMERO</label>
+              <label for="cep">NÃMERO</label>
               <input type="text" name="numero" class="form-control" id="numero">
             </div>
             </div>

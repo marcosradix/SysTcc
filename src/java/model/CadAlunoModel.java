@@ -61,6 +61,10 @@ public class CadAlunoModel {
         this.semestre = semestre;
         this.turno = turno;
     }
+
+    public CadAlunoModel(String nomeCompleto) {
+        this.nomeCompleto = nomeCompleto;
+    }
     
        
        

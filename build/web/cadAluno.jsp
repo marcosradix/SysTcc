@@ -1,3 +1,10 @@
+<%-- 
+    Document   : 
+    Created on : 27/09/2017, 11:19:06
+    Author     : Marcos Ferreira
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%><!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,7 +17,11 @@
  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-
+    <% response.setHeader("Cache-Control","no-cache , no-store, must-revalidate");
+        if(session.getAttribute("usuario") == null){
+            response.sendRedirect("index.jsp");
+        }
+    %>
  <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
    <div class="navbar-header">
@@ -38,7 +49,7 @@
    <form action="CadAlunoServlet" method="POST">
             <div class="row form-control" style="background-color: lightblue">
               <div class="form-group col-md-12 col-md-offset-5">
-                <label>INFORMAÇÕES PESSOAIS</label>
+                <label>INFORMAÃÃES PESSOAIS</label>
               </div>
             </div>
 
@@ -86,11 +97,11 @@
           </div>
           <div class="row">
             <div class="form-group col-md-9">
-              <label for="endereco">ENDEREÇO</label>
+              <label for="endereco">ENDEREÃO</label>
               <input type="text" name="endereco" class="form-control" id="endereco">
             </div>
             <div class="form-group col-md-2">
-              <label for="numero">NÚMERO</label>
+              <label for="numero">NÃMERO</label>
               <input type="text" name="numero" class="form-control" id="numero">
             </div>
             </div>
@@ -114,12 +125,12 @@
           </div>
           <div class="row form-control" style="background-color: lightblue">
             <div class="form-group col-md-12 col-md-offset-5">
-              <label style="">DADOS ACADÊMICO</label>
+              <label style="">DADOS ACADÃMICO</label>
             </div>
           </div>
           <div class="row">
             <div class="form-group col-md-3">
-              <label for="matricula">MATRÍCULA</label>
+              <label for="matricula">MATRÃCULA</label>
               <input type="text" name="matricula" class="form-control" id="matricula">
             </div>
             <div class="form-group col-md-3">
@@ -137,9 +148,9 @@
             </div>
 
             <div id="actions" class="row">
-             <div class="col-md-12">
-                 <button type="submit" class="btn btn-primary">Salvar</button>
-             <input type="button" class="btn btn-success" value="Voltar" onclick="history.back()">
+            <div class="col-md-12">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <input type="button" class="btn btn-success" value="Voltar" onclick="history.back()">
            </div>
           </div>
           <hr/>

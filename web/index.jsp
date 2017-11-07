@@ -1,3 +1,10 @@
+<%-- 
+    Document   : 
+    Created on : 27/09/2017, 11:19:06
+    Author     : Marcos Ferreira
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%><!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,6 +17,11 @@
  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
+     <% response.setHeader("Cache-Control","no-cache ,must-revalidate");
+        if(session.getAttribute("usuario") != null){
+            response.sendRedirect("dashboard.jsp");
+        }
+    %>
  <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">

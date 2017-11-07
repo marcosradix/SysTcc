@@ -12,6 +12,11 @@
         <title>Erros</title>
     </head>
     <body>
+            <% response.setHeader("Cache-Control","no-cache , no-store, must-revalidate");
+        if(session.getAttribute("usuario") == null){
+            response.sendRedirect("index.jsp");
+        }
+    %>
         <h1>Um erro inesperado ocorreu!</h1>
     </body>
 </html>

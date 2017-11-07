@@ -1,3 +1,15 @@
+
+
+<%-- 
+    Document   : 
+    Created on : 27/09/2017, 11:19:06
+    Author     : Marcos Ferreira
+--%>
+<%@page import="model.CadAlunoModel"%>
+<%@page import="dao.CadAlunoDao"%>
+<jsp:useBean id="aTccDao" class="dao.CadAlunoDao"/>
+<%@page contentType="text/html" pageEncoding="UTF-8"%><!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 ﻿<!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,7 +22,11 @@
  <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-
+    <% response.setHeader("Cache-Control","no-cache , no-store, must-revalidate");
+        if(session.getAttribute("usuario") == null){
+            response.sendRedirect("index.jsp");
+        }
+    %>
  <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
    <div class="navbar-header">
@@ -55,10 +71,15 @@
                             <input type="text" name="tituloTcc" class="form-control" id="tituloTcc" required>
                         </div>
 
-                        <div class="form-group">
-                            <label for="aluno">ALUNO</label>
-                            <input type="text" name="aluno" class="form-control" id="aluno" required>
-                        </div>
+                           <div class="form-group">
+                                <label for="aluno">ALUNO</label>
+                               <select class="form-control" name="aluno" id="aluno">
+                                <c:forEach items="${aTccDao.listarAluno()}" var="itemList">
+                                    <option label="${itemList.getNomeCompleto()}" itemid="aluno" value="${itemList.getNomeCompleto()}"></option>
+                                </c:forEach>
+                               </select>
+                               
+                            </div>
 
                         <div class="form-group">
                             <label for="curso">CURSO</label>

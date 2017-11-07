@@ -1,5 +1,5 @@
 <%-- 
-    Document   : teste
+    Document   : 
     Created on : 27/09/2017, 11:19:06
     Author     : Marcos Ferreira
 --%>
@@ -33,7 +33,7 @@
 </style>
 </head>
 <body>
-    <% response.setHeader("Cache-Control","no-cache , no-store, must-revalidate");
+    <% response.setHeader("Cache-Control","no-cache ,must-revalidate");
         if(session.getAttribute("usuario") == null){
             response.sendRedirect("index.jsp");
         }
@@ -75,7 +75,7 @@
       ALUNO <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
-           <li><a href="cadAluno.html">Cadastrar Aluno</a></li>
+           <li><a href="cadAluno.jsp">Cadastrar Aluno</a></li>
            <li><a href="alunCadastrados.jsp">Pesquisar Aluno</a></li>
           <!--  <li><a href="#">Something else here</a></li> -->
           <!--  <li role="separator" class="divider"></li>
@@ -88,7 +88,7 @@
       PROFESSOR <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
-           <li><a href="cadProfessor.html">Cadastrar Professor</a></li>
+           <li><a href="cadProfessor.jsp">Cadastrar Professor</a></li>
            <li><a href="profCadastrados.jsp">Pesquisar Professor</a></li>
            <!-- <li><a href="#">Something else here</a></li> -->
           <!--  <li role="separator" class="divider"></li>
@@ -101,9 +101,9 @@
       AGENDAMENTO <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
-           <li><a href="agendamentoTcc.html" >Agendar TCC</a></li>
+           <li><a href="agendamentoTcc.jsp" >Agendar TCC</a></li>
            <li><a href="pescAgendamentos.jsp">Pesquisar TCC agendado</a></li>
-           <li><a href="cadTcc.html">Cadastrar TCC</a></li>
+           <li><a href="cadTcc.jsp">Cadastrar TCC</a></li>
            <li><a href="pesquisaTcc.jsp">Pesquisar TCC</a></li>
            <!-- <li><a href="#">Something else here</a></li> -->
            <!-- <li role="separator" class="divider"></li>
@@ -115,7 +115,7 @@
       ADMINISTRATIVO <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
-           <li><a href="cadTecnicoAdm.html">Cadastrar Tec Adimin</a></li>
+           <li><a href="cadTecnicoAdm.jsp">Cadastrar Tec Adimin</a></li>
          <!--   <li><a href="#">Another action</a></li>
            <li><a href="#">Something else here</a></li> -->
           <!--  <li role="separator" class="divider"></li>

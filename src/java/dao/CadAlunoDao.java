@@ -172,5 +172,34 @@ public class CadAlunoDao implements ICadAlunoDao{
             Logger.getLogger(CadAlunoDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @Override
+    public List<CadAlunoModel> listarAluno() {
+                List<CadAlunoModel> listConsulta = new ArrayList<>();
+        PreparedStatement pst =null;
+        ResultSet rs=null;
+        try {
+
+                con = ConexaoBd.conecta();
+                pst = con.prepareStatement("SELECT nome_completo FROM cadastrar_aluno");
+                rs = pst.executeQuery();
+            
+            while(rs.next()){
+                CadAlunoModel cadAlunoModel = new CadAlunoModel (
+                   rs.getString("nome_completo")
+                );
+                
+                listConsulta.add(cadAlunoModel);
+                
+                    }
+               
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+          con = ConexaoBd.desconectar();
+        }
+       
+        return listConsulta;
+    }
    
 }
