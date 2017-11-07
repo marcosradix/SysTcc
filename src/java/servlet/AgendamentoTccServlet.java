@@ -63,7 +63,7 @@ public class AgendamentoTccServlet extends HttpServlet {
                 agendamentoTccDao.salvar(agendamentoTccModel);
                 
   
-            request.getRequestDispatcher("agendamentoTcc.html").forward(request, response);
+            request.getRequestDispatcher("agendamentoTcc.jsp").forward(request, response);
     }
     
      protected void processRequestEditar(HttpServletRequest request, HttpServletResponse response)
