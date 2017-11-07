@@ -4,8 +4,15 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/marcos/NetBeansProjects/SysTcc/web/agendamentoTcc.jsp</file>
+            <file>file:/home/marcos/NetBeansProjects/SysTcc/src/java/dao/CadProfessorDao.java</file>
+            <file>file:/home/marcos/NetBeansProjects/SysTcc/src/java/servlet/CadAlunoServlet.java</file>
+            <file>file:/home/marcos/NetBeansProjects/SysTcc/web/cadTecnicoAdm.jsp</file>
+            <file>file:/home/marcos/NetBeansProjects/SysTcc/src/java/interfaceDao/ICadProfessorDao.java</file>
+            <file>file:/home/marcos/NetBeansProjects/SysTcc/web/cadAluno.jsp</file>
             <file>file:/home/marcos/NetBeansProjects/SysTcc/src/java/dao/CadAlunoDao.java</file>
             <file>file:/home/marcos/NetBeansProjects/SysTcc/src/java/servlet/AgendamentoTccServlet.java</file>
+            <file>file:/home/marcos/NetBeansProjects/SysTcc/web/cadProfessor.jsp</file>
+            <file>file:/home/marcos/NetBeansProjects/SysTcc/src/java/model/CadProfessorModel.java</file>
         </group>
     </open-files>
 </project-private>

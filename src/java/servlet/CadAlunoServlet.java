@@ -66,7 +66,7 @@ public class CadAlunoServlet extends HttpServlet {
             CadAlunoModel cadAlunoModel = new CadAlunoModel(nome, nascimento, sexo ,rg, cpf, email, telFixo, telCelular,
                     endereco, numero, bairro, cidade, estado, cep, matricula, curso, semestre, turno);
        cadAlunoDao.salvar(cadAlunoModel);
-       response.sendRedirect("cadAluno.html");
+       response.sendRedirect("cadAluno.jsp");
        }catch(Exception e){
        response.sendRedirect("erros.jsp");
        e.printStackTrace();

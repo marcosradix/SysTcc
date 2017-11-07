@@ -162,5 +162,34 @@ public class CadProfessorDao implements ICadProfessorDao{
             Logger.getLogger(CadProfessorDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @Override
+    public List<CadProfessorModel> listarProfessor() {
+        List<CadProfessorModel> listConsulta = new ArrayList<>();
+        PreparedStatement pst =null;
+        ResultSet rs=null;
+        try {
+
+                con = ConexaoBd.conecta();
+                pst = con.prepareStatement("SELECT nome_completo FROM cadastrar_professor");
+                rs = pst.executeQuery();
+            
+            while(rs.next()){
+                CadProfessorModel cadProfessorModel = new CadProfessorModel (
+                   rs.getString("nome_completo")
+                );
+                
+                listConsulta.add(cadProfessorModel);
+                
+                    }
+               
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally{
+          con = ConexaoBd.desconectar();
+        }
+       
+        return listConsulta;
+    }
    
 }

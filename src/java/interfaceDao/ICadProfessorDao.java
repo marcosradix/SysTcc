@@ -16,6 +16,7 @@ public interface ICadProfessorDao {
     public void salvar(CadProfessorModel cadProfessorModel);
     public void deletar(CadProfessorModel id);
     public List<CadProfessorModel> listar(String Professor);
+    public List<CadProfessorModel> listarProfessor();
     public CadProfessorModel buscar(Long id);
     public void editar(CadProfessorModel cadProfessorModel);   
     

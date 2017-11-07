@@ -65,6 +65,10 @@ public class CadProfessorModel {
         this.cep = cep;
     }
 
+    public CadProfessorModel(String nomeCompleto) {
+        this.nomeCompleto = nomeCompleto;
+    }
+
     public CadProfessorModel() {
     }
 

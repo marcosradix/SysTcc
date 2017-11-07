@@ -56,7 +56,7 @@
           <div class="row">
             <div class="row form-control" style="background-color: lightblue">
             <div class="form-group col-md-12 col-md-offset-5">
-              <label style="">INFORMAÃÃES PESSOAIS</label>
+              <label style="">INFORMAÇÕES PESSOAIS</label>
             </div>
           </div>
           <div class="row">
@@ -81,7 +81,7 @@
                </select>
             </div>
             <div class="form-group col-md-3">
-              <label for="matricula">MATRÃCULA FUNCIONAL</label>
+              <label for="matricula">MATRÍCULA FUNCIONAL</label>
               <input type="number" name="matricula" class="form-control" id="matricula">
             </div>
              <div class="form-group col-md-3">
@@ -109,11 +109,11 @@
           </div>
           <div class="row">
             <div class="form-group col-md-9">
-              <label for="endereco">ENDEREÃO</label>
+              <label for="endereco">ENDEREÇO</label>
               <input type="text" name="endereco" class="form-control" id="endereco">
             </div>
             <div class="form-group col-md-2">
-              <label for="cep">NÃMERO</label>
+              <label for="cep">NÚMERO</label>
               <input type="text" name="numero" class="form-control" id="numero">
             </div>
             </div>
