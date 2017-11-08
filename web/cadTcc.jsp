@@ -3,7 +3,9 @@
     Created on : 27/09/2017, 11:19:06
     Author     : Marcos Ferreira
 --%>
-
+<jsp:useBean id="cProfDao" class="dao.CadProfessorDao"/>
+<jsp:useBean id="cAlunoDao" class="dao.CadAlunoDao"/>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%><!DOCTYPE html>
 ﻿<!DOCTYPE html>
 <html lang="pt-br">
@@ -77,15 +79,23 @@
                             <input type="text" name="curso" class="form-control" id="aluno">
                         </div>
 
-                        <div class="form-group">
-                            <label for="curso">AUTOR</label>
-                            <input type="text" name="autor" class="form-control" id="curso">
-                        </div>
+                               <div class="form-group">
+                                <label for="autor">AUTOR</label>
+                               <select class="form-control" name="autor" id="autor">
+                                <c:forEach items="${cAlunoDao.listarAluno()}" var="itemList">
+                                    <option label="${itemList.getNomeCompleto()}" itemid="autor" value="${itemList.getNomeCompleto()}"></option>
+                                </c:forEach>
+                               </select>
+                            </div>
 
-                        <div class="form-group">
-                            <label for="orientador">ORIENTADOR</label>
-                            <input type="text" name="orientador" class="form-control" id="orientador">
-                        </div>
+                              <div class="form-group">
+                                <label for="orientador">ORIENTADOR</label>
+                               <select class="form-control" name="orientador" id="orientador">
+                                <c:forEach items="${cProfDao.listarProfessor()}" var="itemList">
+                                    <option label="${itemList.getNomeCompleto()}" itemid="orientador" value="${itemList.getNomeCompleto()}"></option>
+                                </c:forEach>
+                               </select>
+                            </div>
 
                         <div id="actions" class="row">
                             <div class="col-md-12">

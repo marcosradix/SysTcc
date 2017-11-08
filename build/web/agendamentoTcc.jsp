@@ -123,7 +123,7 @@
                         </div>
                         <br>
                          <div class="form-group">
-                                <label for="avaliadorExterno">AVALIADOR INTERNO</label>
+                                <label for="avaliadorExterno">AVALIADOR EXTERNO</label>
                                <select class="form-control" name="avaliadorExterno" id="orientador">
                                    <c:forEach items="${cProfDao.listarProfessor()}" var="itemList">
                                     <option label="${itemList.getNomeCompleto()}" itemid="avaliadorExterno" value="${itemList.getNomeCompleto()}"></option>
