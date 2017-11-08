@@ -47,7 +47,7 @@ public class CadTccServlet extends HttpServlet {
                 CadastrarTccModel cadastrarTccModel = new CadastrarTccModel(
                 titulo, resumo, pavra_chave, curso,autor, orientador);
                 cadastrarTccDao.salvar(cadastrarTccModel);
-                request.getRequestDispatcher("cadTcc.html").forward(request, response);
+                request.getRequestDispatcher("cadTcc.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

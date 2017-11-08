@@ -8,6 +8,7 @@
 <%@page import="model.CadAlunoModel"%>
 <%@page import="dao.CadAlunoDao"%>
 <jsp:useBean id="aTccDao" class="dao.CadAlunoDao"/>
+<jsp:useBean id="cProfDao" class="dao.CadProfessorDao"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%><!DOCTYPE html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 ﻿<!DOCTYPE html>
@@ -86,15 +87,24 @@
                             <input type="text" name="curso" class="form-control" id="curso" required>
                         </div>
 
-                        <div class="form-group">
-                            <label for="orientador">ORIENTADOR</label>
-                            <input type="text" name="orientador" class="form-control" id="orientador" required>
-                        </div>
+                             <div class="form-group">
+                                <label for="orientador">ORIENTADOR</label>
+                               <select class="form-control" name="orientador" id="orientador">
+                                   <c:forEach items="${cProfDao.listarProfessor()}" var="itemList">
+                                    <option label="${itemList.getNomeCompleto()}" itemid="orientador" value="${itemList.getNomeCompleto()}"></option>
+                                </c:forEach>
+                               </select>
+                               
+                            </div>
 
-                        <div class="form-group">
-                            <label for="avaliadorInterno">AVALIADOR INTERNO</label>
-                            <input type="text" name="avaliadorInterno" class="form-control" id="avaliadorInterno" required>
-                        </div>
+                              <div class="form-group">
+                                <label for="avaliadorInterno">AVALIADOR INTERNO</label>
+                               <select class="form-control" name="avaliadorInterno" id="orientador">
+                                   <c:forEach items="${cProfDao.listarProfessor()}" var="itemList">
+                                    <option label="${itemList.getNomeCompleto()}" itemid="avaliadorInterno" value="${itemList.getNomeCompleto()}"></option>
+                                </c:forEach>
+                               </select>
+                            </div>
                         <div class="col-md-12">
                             <button type="submit" class="btn btn-primary">Salvar</button>
                             <button  type="submit" class="btn btn-success" onclick="history.back();">Cancelar</button>
@@ -112,10 +122,14 @@
                             </div>
                         </div>
                         <br>
-                        <div class="form-group">
-                            <label for="avaliadorExterno">AVALIADOR EXTERNO</label>
-                            <input type="text" name="avaliadorExterno" class="form-control" id="avaliadorExterno">
-                        </div>
+                         <div class="form-group">
+                                <label for="avaliadorExterno">AVALIADOR INTERNO</label>
+                               <select class="form-control" name="avaliadorExterno" id="orientador">
+                                   <c:forEach items="${cProfDao.listarProfessor()}" var="itemList">
+                                    <option label="${itemList.getNomeCompleto()}" itemid="avaliadorExterno" value="${itemList.getNomeCompleto()}"></option>
+                                </c:forEach>
+                               </select>
+                            </div>
 
                         <div class="form-group">
                             <label for="areaConhecimento">ÁREA DE CONHECIMENTO</label>

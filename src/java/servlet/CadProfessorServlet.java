@@ -63,7 +63,7 @@ public class CadProfessorServlet extends HttpServlet {
        CadProfessorModel cadProfessorModel = new CadProfessorModel(nome, nascimento, sexo, matriculaFunc, rg, cpf, email
                , telFixo, telCelular, endereco,numero, bairro, cidade, estado, cep);
        cadProfessorDao.salvar(cadProfessorModel);
-       response.sendRedirect("cadProfessor.html");
+       response.sendRedirect("cadProfessor.jsp");
        }catch(Exception e){
        response.sendRedirect("erros.jsp");
        }

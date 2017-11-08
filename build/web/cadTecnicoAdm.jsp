@@ -70,12 +70,12 @@
           </div>
           <div class="row">
             <div class="form-group col-md-2">
-                <label for="dominio">SEXO</label>
+                <label for="sexo">SEXO</label>
                 <hr />
-              <select class="form-control" name="idDominio" id="idDominio">
+              <select class="form-control" name="sexo" id="sexo">
                 <option>Selecione...</option>
-                <option value="vic">MASCULINO</option>
-                <option value="vec">FEMININO</option> 
+                <option value="Masculino">MASCULINO</option>
+                <option value="Feminino">FEMININO</option> 
                </select>
             </div>
             <div class="form-group col-md-3">
