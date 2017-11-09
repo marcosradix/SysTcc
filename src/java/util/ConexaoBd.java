@@ -8,6 +8,10 @@ package util;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 
 /**
  *
@@ -23,13 +27,20 @@ public class ConexaoBd {
     public static Connection conecta(){
         try {
             status = true;
+           //Context context = new InitialContext();
+           //Context envCtx = (Context) context.lookup("java:comp/env");
+           //DataSource dataSource = (DataSource) envCtx.lookup("jdbc/sysTcc");
+            
+            
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(URL,usuario, senha);
             System.out.println("Conectado com sucesso!");
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(ConexaoBd.class.getName()).log(Level.SEVERE, null, ex);
             	System.out.println("Erro na copnexão ao banco de dados, erro = "+ex);
-        }
+        } catch (ClassNotFoundException ex) {
+           Logger.getLogger(ConexaoBd.class.getName()).log(Level.SEVERE, null, ex);
+       }
        return connection;
         
     }

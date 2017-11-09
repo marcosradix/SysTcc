@@ -1,2 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context antiJARLocking="true" path=""/>
+<Context antiJARLocking="true" path="">
+ <Resource
+    name="jdbc/sysTcc"
+    type="javax.sql.DataSource"
+    driverClassName="com.mysql.jdbc.Driver"
+    url="jdbc:mysql://localhost:3306/systcc_db"
+    username="root"
+    auth="Container"
+    maxActive="50"
+    maxIdle="30"
+    maxWait="10000"
+    />
+</Context>
