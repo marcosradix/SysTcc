@@ -82,6 +82,7 @@
                                <div class="form-group">
                                 <label for="autor">AUTOR</label>
                                <select class="form-control" name="autor" id="autor">
+                                   <option>Selecione.......</option>
                                 <c:forEach items="${cAlunoDao.listarAluno()}" var="itemList">
                                     <option label="${itemList.getNomeCompleto()}" itemid="autor" value="${itemList.getNomeCompleto()}"></option>
                                 </c:forEach>
@@ -91,6 +92,7 @@
                               <div class="form-group">
                                 <label for="orientador">ORIENTADOR</label>
                                <select class="form-control" name="orientador" id="orientador">
+                                   <option>Selecione.......</option>
                                 <c:forEach items="${cProfDao.listarProfessor()}" var="itemList">
                                     <option label="${itemList.getNomeCompleto()}" itemid="orientador" value="${itemList.getNomeCompleto()}"></option>
                                 </c:forEach>

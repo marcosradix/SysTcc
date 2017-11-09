@@ -56,7 +56,7 @@
                         
                         <div class="input-group h2">
                             
-                            <input name="pesquisa" class="form-control" id="search" type="text" placeholder="Pesquisar Agendamentos">
+                            <input name="pesquisa" class="form-control" id="search" type="text" placeholder="Informe o código do tcc">
                             <span class="input-group-btn">
                                 <button class="btn btn-primary" type="submit">
                                     <span class="glyphicon glyphicon-search"></span>

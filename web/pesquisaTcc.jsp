@@ -53,7 +53,7 @@
                 <div class="col-sm-6">
 
                     <div class="input-group h2">
-                        <input name="busca" class="form-control" id="search" type="text" placeholder="Pesquisar Tccs">
+                        <input name="busca" class="form-control" id="search" type="text" placeholder="Informe o título do tcc">
                         <span class="input-group-btn">
                             <button class="btn btn-primary" type="submit">
                                 <span class="glyphicon glyphicon-search"></span>

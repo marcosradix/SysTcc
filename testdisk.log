@@ -1,0 +1,53 @@
+
+
+Wed Nov  8 11:43:33 2017
+Command line: TestDisk
+
+TestDisk 7.0, Data Recovery Utility, April 2015
+Christophe GRENIER <grenier@cgsecurity.org>
+http://www.cgsecurity.org
+OS: Linux, kernel 4.10.0-38-generic (#42~16.04.1-Ubuntu SMP Tue Oct 10 16:32:20 UTC 2017) x86_64
+Compiler: GCC 5.3
+ext2fs lib: 1.42.13, ntfs lib: libntfs-3g, reiserfs lib: none, ewf lib: none, curses lib: ncurses 6.0
+/dev/sda: LBA, HPA, LBA48, DCO support
+/dev/sda: size       1953525168 sectors
+/dev/sda: user_max   1953525168 sectors
+/dev/sda: native_max 1953525168 sectors
+/dev/sda: dco        1953525168 sectors
+/dev/sdb: LBA, HPA, LBA48, DCO support
+/dev/sdb: size       468862128 sectors
+/dev/sdb: user_max   468862128 sectors
+/dev/sdb: native_max 468862128 sectors
+/dev/sdb: dco        468862128 sectors
+Warning: can't get size for Disk /dev/sdc - 0 B - 0 sectors, sector size=512 - JMicron Generic
+Warning: can't get size for Disk /dev/mapper/control - 0 B - 0 sectors, sector size=512
+/dev/mapper/mint--vg-root: LBA, HPA, LBA48, DCO support
+/dev/mapper/mint--vg-root: size       450461696 sectors
+/dev/mapper/mint--vg-root: user_max   468862128 sectors
+/dev/mapper/mint--vg-root: native_max 468862128 sectors
+/dev/mapper/mint--vg-root: dco        468862128 sectors
+/dev/mapper/mint--vg-swap_1: LBA, HPA, LBA48, DCO support
+/dev/mapper/mint--vg-swap_1: size       16326656 sectors
+/dev/mapper/mint--vg-swap_1: user_max   468862128 sectors
+/dev/mapper/mint--vg-swap_1: native_max 468862128 sectors
+/dev/mapper/mint--vg-swap_1: dco        468862128 sectors
+/dev/dm-0: LBA, HPA, LBA48, DCO support
+/dev/dm-0: size       450461696 sectors
+/dev/dm-0: user_max   468862128 sectors
+/dev/dm-0: native_max 468862128 sectors
+/dev/dm-0: dco        468862128 sectors
+/dev/dm-1: LBA, HPA, LBA48, DCO support
+/dev/dm-1: size       16326656 sectors
+/dev/dm-1: user_max   468862128 sectors
+/dev/dm-1: native_max 468862128 sectors
+/dev/dm-1: dco        468862128 sectors
+Hard disk list
+Disk /dev/sda - 1000 GB / 931 GiB - CHS 121601 255 63, sector size=512 - WDC WD10SPCX-24HWST1, S/N:WD-WXG1A17L6VC1, FW:02.01A02
+Disk /dev/sdb - 240 GB / 223 GiB - CHS 29185 255 63, sector size=512 - SanDisk SDSSDA240G, S/N:172757801020, FW:Z33130RL
+Disk /dev/mapper/mint--vg-root - 230 GB / 214 GiB - 450461696 sectors, sector size=512 - SanDisk SDSSDA240G, S/N:172757801020, FW:Z33130RL
+Disk /dev/mapper/mint--vg-swap_1 - 8359 MB / 7972 MiB - 16326656 sectors, sector size=512 - SanDisk SDSSDA240G, S/N:172757801020, FW:Z33130RL
+Disk /dev/dm-0 - 230 GB / 214 GiB - 450461696 sectors, sector size=512 - SanDisk SDSSDA240G, S/N:172757801020, FW:Z33130RL
+Disk /dev/dm-1 - 8359 MB / 7972 MiB - 16326656 sectors, sector size=512 - SanDisk SDSSDA240G, S/N:172757801020, FW:Z33130RL
+
+
+TestDisk exited normally.

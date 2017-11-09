@@ -52,7 +52,7 @@
                 <div class="col-sm-6">
 
                             <div class="input-group h2">
-                            <input name="pesquisa" class="form-control" id="pesquisa" type="text" placeholder="Pesquisar Professores">
+                            <input name="pesquisa" class="form-control" id="pesquisa" type="text" placeholder="Informe o nome do professor">
                             <span class="input-group-btn">
                                 <button class="btn btn-primary" type="submit">
                                     <span class="glyphicon glyphicon-search"></span>

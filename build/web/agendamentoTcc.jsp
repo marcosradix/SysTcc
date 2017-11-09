@@ -64,7 +64,7 @@
                         <br>
                         <div class="form-group">
                             <label for="tcc">TCC</label>
-                            <input type="text" name="tcc" class="form-control" id="tcc" required>
+                            <input type="number" name="tcc" class="form-control" id="tcc" required>
                         </div>
 
                         <div class="form-group ">
@@ -75,6 +75,7 @@
                            <div class="form-group">
                                 <label for="aluno">ALUNO</label>
                                <select class="form-control" name="aluno" id="aluno">
+                                   <option>selecione.....</option>
                                 <c:forEach items="${aTccDao.listarAluno()}" var="itemList">
                                     <option label="${itemList.getNomeCompleto()}" itemid="aluno" value="${itemList.getNomeCompleto()}"></option>
                                 </c:forEach>
@@ -90,6 +91,7 @@
                              <div class="form-group">
                                 <label for="orientador">ORIENTADOR</label>
                                <select class="form-control" name="orientador" id="orientador">
+                                   <option>Selecione.......</option>
                                    <c:forEach items="${cProfDao.listarProfessor()}" var="itemList">
                                     <option label="${itemList.getNomeCompleto()}" itemid="orientador" value="${itemList.getNomeCompleto()}"></option>
                                 </c:forEach>
@@ -100,6 +102,7 @@
                               <div class="form-group">
                                 <label for="avaliadorInterno">AVALIADOR INTERNO</label>
                                <select class="form-control" name="avaliadorInterno" id="orientador">
+                                   <option>Selecione.......</option>
                                    <c:forEach items="${cProfDao.listarProfessor()}" var="itemList">
                                     <option label="${itemList.getNomeCompleto()}" itemid="avaliadorInterno" value="${itemList.getNomeCompleto()}"></option>
                                 </c:forEach>
@@ -125,6 +128,7 @@
                          <div class="form-group">
                                 <label for="avaliadorExterno">AVALIADOR EXTERNO</label>
                                <select class="form-control" name="avaliadorExterno" id="orientador">
+                                   <option>Selecione.......</option>
                                    <c:forEach items="${cProfDao.listarProfessor()}" var="itemList">
                                     <option label="${itemList.getNomeCompleto()}" itemid="avaliadorExterno" value="${itemList.getNomeCompleto()}"></option>
                                 </c:forEach>
